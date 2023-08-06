@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { Button } from 'flowbite-react';
+
 function App() {
   return (
     <div className="App">
@@ -18,7 +20,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+      <Button>Click me</Button>
+      </div>
     </div>
+    
   );
 }
 
