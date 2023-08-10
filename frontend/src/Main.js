@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 //import ReactDOM from 'react-dom/client';
 import ReactDOM from "react-dom";
 import "./index.css";
@@ -12,6 +12,10 @@ import likeImage from "./icons/like.png";
 import eyeImage from "./icons/eye.png";
 import logoImage from "./img/logo.png";
 import bannerImage from "./img/banner.png";
+import reviewImage1 from "./img/reviewbox1.png";
+import reviewImage2 from "./img/reviewbox2.png";
+import reviewImage3 from "./img/reviewbox3.png";
+import backgroundImage from "./img/background.png";
 
 //import reportWebVitals from './reportWebVitals';
 import {
@@ -36,211 +40,43 @@ function Init() {
 
 function Slider() {
   return (
-    <div>
-      <section class="bg-white">
-        <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-          <h2 class="text-center text-4xl font-bold tracking-tight sm:text-5xl">
-            Read trusted reviews from our customers
-          </h2>
-
-          <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-8">
-            <blockquote class="rounded-lg bg-gray-100 p-8">
-              <div class="flex items-center gap-4">
-                <img
-                  alt="Man"
-                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-                  class="h-16 w-16 rounded-full object-cover"
-                />
-
-                <div>
-                  <div class="flex justify-center gap-0.5 text-green-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-
-                  <p class="mt-1 text-lg font-medium text-gray-700">
-                    Paul Starr
-                  </p>
-                </div>
-              </div>
-
-              <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt voluptatem alias ut provident sapiente repellendus.
-              </p>
-            </blockquote>
-
-            <blockquote class="rounded-lg bg-gray-100 p-8">
-              <div class="flex items-center gap-4">
-                <img
-                  alt="Man"
-                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-                  class="h-16 w-16 rounded-full object-cover"
-                />
-
-                <div>
-                  <div class="flex justify-center gap-0.5 text-green-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-
-                  <p class="mt-1 text-lg font-medium text-gray-700">
-                    Paul Starr
-                  </p>
-                </div>
-              </div>
-
-              <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt voluptatem alias ut provident sapiente repellendus.
-              </p>
-            </blockquote>
-
-            <blockquote class="rounded-lg bg-gray-100 p-8">
-              <div class="flex items-center gap-4">
-                <img
-                  alt="Man"
-                  src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
-                  class="h-16 w-16 rounded-full object-cover"
-                />
-
-                <div>
-                  <div class="flex justify-center gap-0.5 text-green-500">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-4 w-4"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-
-                  <p class="mt-1 text-lg font-medium text-gray-700">
-                    Paul Starr
-                  </p>
-                </div>
-              </div>
-
-              <p class="line-clamp-2 sm:line-clamp-none mt-4 text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deserunt voluptatem alias ut provident sapiente repellendus.
-              </p>
-            </blockquote>
+    <div className="SliderWrapper">
+      <div className="Comment w-100 h-96 relative pb-100 text-center">
+          <div className="titleText absolute left-10 top-0 inset-x-0 text-center mt-8">
+            <span className="text-white right-2 bottom-1 bg-blue-950 rounded-lg bg-opacity-80 font-bold text-xl p-2">
+              실제 이용 후기로 보는 Xpert
+            </span>
+        </div>
+        <div className="Comment w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl">
+        <div className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl">
+        <div className="reviewImage mt-16" style={{ transform: "translate(-20px, 180px)" }}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="51" viewBox="0 0 35 51" fill="none">
+              <path d="M0.907828 23.2841L26.0144 0.812589C27.2248 -0.270863 29.1884 -0.270863 30.3988 0.812589L33.3274 3.43392C34.5365 4.51621 34.5378 6.26916 33.3326 7.35377L13.4346 25.2463L33.3313 43.14C34.5378 44.2246 34.5352 45.9776 33.3261 47.0599L30.3975 49.6812C29.1871 50.7647 27.2235 50.7647 26.0131 49.6812L0.907828 27.2086C-0.302609 26.1251 -0.302609 24.3675 0.907828 23.2841Z" fill="#5D75B1"/>
+            </svg>
+          </div>
+          <div className="reviewImage mt-28">
+            <img src={reviewImage1} alt="Review 1" />
+          </div>
+          <div className="reviewImage mt-28">
+            <img src={reviewImage2} alt="Review 2" />
+          </div>
+          <div className="reviewImage mt-28">
+            <img src={reviewImage3} alt="Review 3" />
+            </div>
+            <div className="reviewImage mt-16" style={{ transform: "translate(20px, 180px)" }}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="51" viewBox="0 0 35 51" fill="none">
+                  <path d="M33.3274 27.2099L8.22102 49.6822C7.01016 50.7661 5.04707 50.7661 3.83635 49.6822L0.908108 47.0612C-0.300676 45.9792 -0.303001 44.2257 0.902941 43.1411L20.8002 25.2475L0.902941 7.35396C-0.303001 6.26944 -0.300676 4.51588 0.908108 3.43391L3.83635 0.812867C5.0472 -0.270956 7.01029 -0.270956 8.22102 0.812867L33.3272 23.2852C34.5381 24.3689 34.5381 26.1261 33.3274 27.2099Z" fill="#5D75B1"/>
+              </svg>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
     </div>
   );
 }
+
+
+
 function MainComp() {
   return (
     <div>
@@ -260,22 +96,21 @@ function MainComp() {
 function Contents() {
   return (
     <div>
-      <div class="w-[1016px] h-[139px] relative shadow flex items-center">
-        <div class="w-[1016px] h-[139px] left-0 top-0 relative items-center bg-white rounded-[20px]">
+    <div className="w-[1016px] h-[139px] relative shadow flex items-center">
           <div class="w-[23px] h-[31.26px] left-[39px] top-[47.87px] absolute text-center text-blue-950 text-opacity-50 text-[40px] font-bold">
             1
           </div>
-          <div class="w-[676px] h-[0px] left-[299px] top-[94.44px] absolute border border-zinc-300"></div>
-          <div class="left-[455px] top-[40px] absolute text-center text-black text-[25px] font-semibold">
+          <div class="w-[676px] h-[0px] left-[299px] top-[95.44px] absolute border border-zinc-300"></div>
+          <div class="left-[480px] top-[35px] absolute text-center text-black text-[25px] font-semibold">
             맥도날드
           </div>
-          <div class="left-[309px] top-[45px] absolute text-center">
+          <div class="left-[309px] top-[40px] absolute text-center">
             <span class="text-neutral-400 text-[15px] font-light">
               매장 키오스크{" "}
             </span>
-            {/* <span class="text-neutral-400 text-[10px] font-normal">
+            <span class="text-neutral-400 text-[10px] font-normal">
               패스트푸드
-            </span> */}
+            </span>
           </div>
           <div class="left-[309px] top-[105px] absolute justify-start items-start gap-[3px] inline-flex">
             <div class="text-center text-black text-[15px] font-medium">
@@ -297,7 +132,7 @@ function Contents() {
           <div class="left-[899px] top-[106px] absolute text-center text-stone-500 text-[15px] font-medium">
             30,000회
           </div>
-          <div class="w-[187px] h-24 left-[89px] top-[24px] absolute rounded-lg">
+          <div class="w-[187px] h-24 left-[89px] top-[15px] absolute rounded-lg">
             <div class="items-center justify-center">
               <img src={mcImage} alt="mcdonalds" />
             </div>
@@ -362,7 +197,6 @@ function Contents() {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 }
@@ -371,7 +205,7 @@ function HeaderComp() {
   return (
     <div>
       <section
-        className="bg-center bg-no-repeat bg-cover bg-blend-multiply"
+        className="bg-center bg-no-repeat bg-cover bg-blend-multiply mt-12"
         style={{
           backgroundImage: `url(${bannerImage})`,
           backgroundSize: '100% auto',
@@ -445,7 +279,7 @@ function Nav() {
                 href="#"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
-                유틸리티
+                모바일뱅킹앱 가이드
               </a>
             </li>
             <li>
@@ -453,7 +287,7 @@ function Nav() {
                 href="#"
                 className="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
-                모바일뱅킹앱 가이드
+                유틸리티 서비스 가이드
               </a>
             </li>
           </ul>
@@ -476,7 +310,7 @@ function Search() {
         <div className="relative">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <svg
-              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              className="w-8 h-8 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -498,11 +332,12 @@ function Search() {
             placeholder="검색어를 입력하세요."
             required
           />
+
           <button
             type="submit"
             className="text-white absolute right-2.5 bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Search
+            검색
           </button>
         </div>
       </form>
@@ -511,7 +346,7 @@ function Search() {
 }
 
 
-
+/*
 // https://wickedblocks.dev/groups/card/
 // https://mambaui.com/components/weather
 function Rankings() {
@@ -551,11 +386,45 @@ function Rankings() {
     </div>
   );
 }
-
+*/
 function FooterComp() {
   return (
+    <footer className="footer p-24 bg-gradient-to-b from-blue-950 via-indigo-400 to-indigo-300 text-white" style={{ marginTop: "250px" }}>
+      <div className="grid grid-cols-8 lg:grid-cols-3 gap-80">
+        <div>
+            <span className="footer-title text-2xl font-semibold">About</span>
+            <p className="context">
+            <br/>
+            Xpert는 디지털 기기 조작을 어려워하는 중장년층분들을 위해 디지털 기기 사용법을 알려주는 플랫폼입니다.
+            <br />
+            Xpert는 매장 키오스크 사용법부터 교통앱, 배달앱, 그리고 모바일 뱅킹 앱과 같은 다양한 디지털 기기 사용법을 
+            쉽고 친절하게 안내합니다.
+            </p>
+        </div>
+        <div>
+        <span className="footer-title text-2xl font-semibold">Menu</span>
+        <a href="/restaurant" className="link link-hover block mt-2">매장 키오스크 가이드</a>
+        <a href="/transportation" className="link link-hover block mt-2">교통앱 가이드</a>
+        <a href="/mobilebanking" className="link link-hover block mt-2">모바일뱅킹앱 가이드</a>
+        <a href="/utility" className="link link-hover block mt-2">유틸리티 서비스 가이드</a>
+        </div>
+        <div>
+        <span className="footer-title text-2xl font-semibold">Information</span>
+        <a href="/restaurant" className="link link-hover block mt-2">매장 키오스크 가이드</a>
+        <a href="/transportation" className="link link-hover block mt-2">교통앱 가이드</a>
+        <a href="/mobilebanking" className="link link-hover block mt-2">모바일뱅킹앱 가이드</a>
+        <a href="/utility" className="link link-hover block mt-2">유틸리티 서비스 가이드</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+
+/*function FooterComp() {
+  return (
     <div>
-      <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4">
+      <footer class="bg-white rounded-lg shadow dark:bg-gray-900 m-4" style={{ marginTop: "300px" }}>
         <div class="w-full max-w-screen-xl mx-auto p-4 md:py-12">
           <div class="sm:flex sm:items-center sm:justify-between">
             <a
@@ -607,6 +476,7 @@ function FooterComp() {
     </div>
   );
 }
+*/
 
 function Main() {
   return (
@@ -619,5 +489,6 @@ function Main() {
     </div>
   );
 }
+
 
 export default Main;
