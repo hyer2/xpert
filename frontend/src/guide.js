@@ -1,8 +1,8 @@
 import "./index.css";
 import "./style.css";
-import Nav from "./Nav";
 import mcImage from "./icons/mcdonalds.png";
-
+import likeImage from "./icons/like.png";
+import eyeImage from "./icons/eye.png";
 function GuideSearch() {
   return (
     <div class="pb-10">
@@ -17,10 +17,10 @@ function GuideSearch() {
           <button
             id="dropdown-button"
             data-dropdown-toggle="dropdown"
-            class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+            class="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-bold text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
             type="button"
           >
-            All categories{" "}
+            모든 매장{" "}
             <svg
               class="w-2.5 h-2.5 ml-2.5"
               aria-hidden="true"
@@ -84,7 +84,7 @@ function GuideSearch() {
               type="search"
               id="search-dropdown"
               class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-              placeholder="Search Mockups, Logos, Design Templates..."
+              placeholder="원하시는 매장명을 입력하세요..."
               required
             />
             <button
@@ -121,33 +121,33 @@ function Button() {
       <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
         <button
           type="button"
-          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-indigo-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-xl px-5 py-2.5 text-center mb-2"
         >
-          Default
+          맥도날드
         </button>
         <button
           type="button"
-          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-indigo-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-xl px-5 py-2.5 text-center mb-2"
         >
-          Default
+          베스킨라빈스
         </button>
         <button
           type="button"
-          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-indigo-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-xl px-5 py-2.5 text-center mb-2"
         >
-          Default
+          공차
         </button>
         <button
           type="button"
-          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-indigo-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-xl px-5 py-2.5 text-center mb-2"
         >
-          Default
+          버거킹
         </button>
         <button
           type="button"
-          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800"
+          class="text-blue-700 hover:text-white bg-white border border-blue-700 hover:bg-indigo-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-bold rounded-lg text-xl px-5 py-2.5 text-center mb-2"
         >
-          Default
+          서브웨이
         </button>
       </div>
     </div>
@@ -183,8 +183,8 @@ function Card() {
 
         <div class="px-5 pb-5">
           <a href="#">
-            <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              Apple Watch Series 7 GPS, Aluminium Case, Starlight Sport
+            <h5 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+              맥도날드
             </h5>
           </a>
           <div class="flex items-center mt-2.5 mb-5">
@@ -238,14 +238,22 @@ function Card() {
             </span>
           </div>
           <div class="flex items-center justify-between">
-            <span class="text-3xl font-bold text-gray-900 dark:text-white">
-              $599
-            </span>
+            <div class="text-center text-stone-500 font-medium">
+              <img src={likeImage} />
+            </div>
+
+            <div class="text-center text-stone-500 font-medium">1,130개</div>
+
+            <div class="text-center text-stone-500 font-medium">
+              <img src={eyeImage} />
+            </div>
+
+            <div class="text-center text-stone-500 font-medium">30,000회</div>
             <a
               href="#"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
-              Add to cart
+              more
             </a>
           </div>
         </div>
@@ -271,15 +279,115 @@ function Cards() {
     </div>
   );
 }
+
+function Pagination() {
+  return (
+    <div>
+      <nav aria-label="Page navigation example">
+        <ul class="flex items-center -space-x-px h-8 text-sm">
+          <li>
+            <a
+              href="#"
+              class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <span class="sr-only">Previous</span>
+              <svg
+                class="w-2.5 h-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M5 1 1 5l4 4"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              1
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              2
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              aria-current="page"
+              class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+            >
+              3
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              4
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              5
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+            >
+              <span class="sr-only">Next</span>
+              <svg
+                class="w-2.5 h-2.5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 6 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="m1 9 4-4-4-4"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  );
+}
 function Guide() {
   return (
     <div>
-      <Nav />
       <div class="items-center justify-center">
         <GuideHeader />
       </div>
       <div>
         <Cards />
+      </div>
+      <div class="flex items-center justify-center">
+        <Pagination />
       </div>
     </div>
   );
