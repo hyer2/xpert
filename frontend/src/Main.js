@@ -12,9 +12,8 @@ import likeImage from "./icons/like.png";
 import eyeImage from "./icons/eye.png";
 import logoImage from "./img/logo.png";
 import bannerImage from "./img/banner.png";
-import reviewImage1 from "./img/reviewbox1.png";
-import reviewImage2 from "./img/reviewbox2.png";
-import reviewImage3 from "./img/reviewbox3.png";
+import reviewImage1 from "./img/usercomment1.png"
+import reviewImage2 from "./img/usercomment2.png"
 import blogImage from "./img/blog.png";
 import bgImage from "./icons/sub-bg.jpg";
 import Guide from "./guide.js";
@@ -39,67 +38,92 @@ function Init() {
   );
 }
 
+
 function Slider() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [reviewImage1, reviewImage2, reviewImage1]; // 필요한 이미지 추가
+
+  const transitionDuration = 5000; // 이미지가 머무는 시간 (밀리초), 10초로 설정
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, transitionDuration * 2);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === images.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
   return (
     <div className="SliderWrapper">
-      <div class="h-[300px]"></div>
-      <div className="Comment w-100 h-96 relative pb-100 text-center">
-        <div className="titleText absolute left-10 top-0 inset-x-0 text-center mt-8">
-          <span className="text-white right-2 bottom-1 bg-blue-950 rounded-lg bg-opacity-80 font-bold text-xl p-2">
+      <div className="Comment w-100 h-96 relative pb-100 text-center mt-12">
+        <div className="titleText absolute left-10 top-0 inset-x-0 text-center">
+          <span
+            className="text-white right-2 bottom-1 bg-blue-900 rounded-lg bg-opacity-80 font-bold text-xl p-2"
+            style={{
+              paddingLeft: "20px",
+              paddingRight: "20px",
+              borderRadius: "50px",
+            }}
+          >
             실제 이용 후기로 보는 Xpert
           </span>
         </div>
-        <div className="Comment w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl">
-          <div className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl">
-            <div
-              className="reviewImage mt-16"
-              style={{ transform: "translate(-20px, 180px)" }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="51"
-                viewBox="0 0 35 51"
-                fill="none"
-              >
-                <path
-                  d="M0.907828 23.2841L26.0144 0.812589C27.2248 -0.270863 29.1884 -0.270863 30.3988 0.812589L33.3274 3.43392C34.5365 4.51621 34.5378 6.26916 33.3326 7.35377L13.4346 25.2463L33.3313 43.14C34.5378 44.2246 34.5352 45.9776 33.3261 47.0599L30.3975 49.6812C29.1871 50.7647 27.2235 50.7647 26.0131 49.6812L0.907828 27.2086C-0.302609 26.1251 -0.302609 24.3675 0.907828 23.2841Z"
-                  fill="#5D75B1"
-                />
-              </svg>
-            </div>
-            <div className="reviewImage mt-28">
-              <img src={reviewImage1} alt="Review 1" />
-            </div>
-            <div className="reviewImage mt-28">
-              <img src={reviewImage2} alt="Review 2" />
-            </div>
-            <div className="reviewImage mt-28">
-              <img src={reviewImage3} alt="Review 3" />
-            </div>
-            <div
-              className="reviewImage mt-16"
-              style={{ transform: "translate(20px, 180px)" }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="51"
-                viewBox="0 0 35 51"
-                fill="none"
-              >
-                <path
-                  d="M33.3274 27.2099L8.22102 49.6822C7.01016 50.7661 5.04707 50.7661 3.83635 49.6822L0.908108 47.0612C-0.300676 45.9792 -0.303001 44.2257 0.902941 43.1411L20.8002 25.2475L0.902941 7.35396C-0.303001 6.26944 -0.300676 4.51588 0.908108 3.43391L3.83635 0.812867C5.0472 -0.270956 7.01029 -0.270956 8.22102 0.812867L33.3272 23.2852C34.5381 24.3689 34.5381 26.1261 33.3274 27.2099Z"
-                  fill="#5D75B1"
-                />
-              </svg>
-            </div>
+        <div
+          id="default-carousel"
+          className="relative w-full"
+          data-carousel="slide"
+          style={{ position: "relative" }}
+        >
+          <div
+            className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl gap-20"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+              transition: `transform ${
+                currentIndex === 0 ? 0 : transitionDuration / 1000
+              }s ease`
+            }}
+          >
+            {images.map((image, index) => (
+              <img
+                key={index}
+                src={image}
+                className={`mx-auto object-contain h-full mt-20 ${
+                  index === currentIndex ? "opacity-100" : "opacity-0"
+                }`}
+                alt={`Review ${index + 1}`}
+                style={{
+                  transition: `opacity ${
+                    currentIndex === 0 ? 0 : transitionDuration / 1000
+                  }s ease`,
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 function MainComp() {
   return (
@@ -250,8 +274,8 @@ function HeaderComp() {
           <h1 class="my-4 text-3xl md:text-4xl lg:text-6xl text-white font-extrabold leading-tight pb-5">
             X-pert
           </h1>
-          <p class="leading-normal text-gray-400 text-base md:text-2xl lg:text-4xl mb-8 font-extrabold">
-            Guid for X-Generation
+          <p class="leading-normal text-white opacity-80% text-base md:text-2xl lg:text-4xl mb-8 font-extrabold">
+            Guide for X-Generation
           </p>
         </div>
       </section>
@@ -300,10 +324,10 @@ function Nav() {
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-28 md:mt-0 md:border-0 md:bg-white">
               <li>
                 <a
-                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
+                  class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
                   href="/guide"
                 >
-                  <span class="relative flex items-center justify-center">
+                <span class="relative flex items-center justify-center">
                     매장 키오스크 가이드
                   </span>
                 </a>
@@ -311,7 +335,7 @@ function Nav() {
 
               <li>
                 <a
-                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
+                  class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
                   href="/guide"
                 >
                   <span class="relative flex items-center justify-center">
@@ -321,9 +345,9 @@ function Nav() {
               </li>
               <li>
                 <a
-                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
-                  href="/guide"
-                >
+                class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
+                href="/guide"
+              >
                   <span class="relative flex items-center justify-center">
                     모바일뱅킹 앱 가이드
                   </span>
@@ -331,7 +355,7 @@ function Nav() {
               </li>
               <li>
                 <a
-                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
+                  class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
                   href="/guide"
                 >
                   <span class="relative flex items-center justify-center">
@@ -394,6 +418,7 @@ function Search() {
     </div>
   );
 }
+
 
 /*
 // https://wickedblocks.dev/groups/card/
