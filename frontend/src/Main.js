@@ -16,7 +16,9 @@ import reviewImage1 from "./img/reviewbox1.png";
 import reviewImage2 from "./img/reviewbox2.png";
 import reviewImage3 from "./img/reviewbox3.png";
 import blogImage from "./img/blog.png";
+import bgImage from "./icons/sub-bg.jpg";
 import Guide from "./guide.js";
+import Detail from "./detail";
 
 //import reportWebVitals from './reportWebVitals';
 import {
@@ -40,6 +42,7 @@ function Init() {
 function Slider() {
   return (
     <div className="SliderWrapper">
+      <div class="h-[300px]"></div>
       <div className="Comment w-100 h-96 relative pb-100 text-center">
         <div className="titleText absolute left-10 top-0 inset-x-0 text-center mt-8">
           <span className="text-white right-2 bottom-1 bg-blue-950 rounded-lg bg-opacity-80 font-bold text-xl p-2">
@@ -226,101 +229,121 @@ function HeaderComp() {
   return (
     <div>
       <section
-        className="bg-center bg-no-repeat bg-cover bg-blend-multiply mt-12"
         style={{
-          backgroundImage: `url(${bannerImage})`,
-          backgroundSize: "100% auto",
+          background: `linear-gradient(
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.6) 75%,
+            rgba(255, 255, 255, 1) 100%
+          ), url(${bgImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          // backgroundImage: `url(${bgImage})`,
+          // backgroundSize: "100% auto",
           width: "100%",
           height: "450px",
         }}
-      ></section>
+        className="mt-10"
+        // bg-center bg-no-repeat bg-cover bg-blend-multiply
+      >
+        <div class="h-[50px]"></div>
+        <div class="text-center px-3 lg:px-10 p-20">
+          <h1 class="my-4 text-3xl md:text-4xl lg:text-6xl text-white font-extrabold leading-tight pb-5">
+            X-pert
+          </h1>
+          <p class="leading-normal text-gray-400 text-base md:text-2xl lg:text-4xl mb-8 font-extrabold">
+            Guid for X-Generation
+          </p>
+        </div>
+      </section>
     </div>
   );
 }
 
 function Nav() {
   return (
-    <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="/" className="flex items-center">
-          <img src={logoImage} className="h-8 mr-3" alt="Flowbite Logo" />
-        </a>
-        <div className="flex md:order-2">
-          <button
-            data-collapse-toggle="navbar-sticky"
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-sticky"
-            aria-expanded="false"
-          >
-            <span className="sr-only">Open main menu</span>
-            <svg
-              className="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
+    <div>
+      <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <a href="/" className="flex items-center">
+            <img src={logoImage} className="h-8 mr-3" alt="Flowbite Logo" />
+          </a>
+          <div className="flex md:order-2">
+            <button
+              data-collapse-toggle="navbar-sticky"
+              type="button"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-sticky"
+              aria-expanded="false"
             >
-              <path
-                stroke="currentColor"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
-        </div>
-        <div
-          className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
-          id="navbar-sticky"
-        >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-28 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a
-                class="relative font-bold text-xl text-indigo-500 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100 pb-6 hover:text-indigo-900"
-                href="/guide"
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
               >
-                <span class="relative flex items-center justify-center">
-                  매장 키오스크 가이드
-                </span>
-              </a>
-            </li>
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+            id="navbar-sticky"
+          >
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-28 md:mt-0 md:border-0 md:bg-white">
+              <li>
+                <a
+                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
+                  href="/guide"
+                >
+                  <span class="relative flex items-center justify-center">
+                    매장 키오스크 가이드
+                  </span>
+                </a>
+              </li>
 
-            <li>
-              <a
-                class="relative font-bold text-xl text-indigo-500 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100 pb-6 hover:text-indigo-900"
-                href="/guide"
-              >
-                <span class="relative flex items-center justify-center">
-                  교통 앱 가이드
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="relative font-bold text-xl text-indigo-500 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100 pb-6 hover:text-indigo-900"
-                href="/guide"
-              >
-                <span class="relative flex items-center justify-center">
-                  모바일뱅킹 앱 가이드
-                </span>
-              </a>
-            </li>
-            <li>
-              <a
-                class="relative font-bold text-xl text-indigo-500 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-indigo-600 before:transition hover:before:scale-100 pb-6 hover:text-indigo-900"
-                href="/guide"
-              >
-                <span class="relative flex items-center justify-center">
-                  유틸리티 앱 가이드
-                </span>
-              </a>
-            </li>
-          </ul>
+              <li>
+                <a
+                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
+                  href="/guide"
+                >
+                  <span class="relative flex items-center justify-center">
+                    교통 앱 가이드
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
+                  href="/guide"
+                >
+                  <span class="relative flex items-center justify-center">
+                    모바일뱅킹 앱 가이드
+                  </span>
+                </a>
+              </li>
+              <li>
+                <a
+                  class="relative font-bold text-sm text-blue-700 before:absolute before:-bottom-5 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-blue-600 before:transition hover:before:scale-100 pb-6 hover:text-blue-900"
+                  href="/guide"
+                >
+                  <span class="relative flex items-center justify-center">
+                    유틸리티 앱 가이드
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 }
 
@@ -415,15 +438,32 @@ function Rankings() {
 */
 function FooterComp() {
   return (
+    // bg-gradient-to-b from-blue-950 via-indigo-400 to-indigo-300
     <footer
-      className="footer p-24 bg-gradient-to-b from-blue-950 via-indigo-400 to-indigo-300 text-white"
-      style={{ marginTop: "250px" }}
+      className="footer p-24 text-white"
+      style={{
+        marginTop: "250px",
+
+        background: `linear-gradient(
+               rgba(255, 255, 255, 1) 0%,
+
+				rgba(255, 255, 255, 0) 100%
+        ), url(${bgImage})`,
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        // backgroundImage: `url(${bgImage})`,
+        // backgroundSize: "100% auto",
+        width: "100%",
+        height: "450px",
+      }}
     >
       <div className="flex justify-center">
         <div className="grid grid-cols-3 gap-20 lg:grid-cols-3">
           <div className="mb-10">
-            <span className="footer-title text-2xl font-semibold">About</span>
-            <p className="context" style={{ lineHeight: "2" }}>
+            <span className="footer-title text-2xl font-extrabold text-black">
+              About
+            </span>
+            <p className="context text-black  mt-5" style={{ lineHeight: "2" }}>
               Xpert는 디지털 기기 조작을 어려워하는 중장년층분들을 위해 디지털
               기기 사용법을 알려주는 플랫폼입니다.
               <br />
@@ -432,26 +472,28 @@ function FooterComp() {
               안내합니다.
             </p>
           </div>
-          <div className="mx-12">
-            <span className="footer-title text-2xl font-semibold">Menu</span>
-            <a href="/restaurant" className="link link-hover block mt-2">
-              매장 키오스크 가이드
-            </a>
-            <a href="/transportation" className="link link-hover block mt-2">
-              교통앱 가이드
-            </a>
-            <a href="/mobilebanking" className="link link-hover block mt-2">
-              모바일뱅킹앱 가이드
-            </a>
-            <a href="/utility" className="link link-hover block mt-2">
-              유틸리티 서비스 가이드
-            </a>
+          <div className="mx-12 text-black">
+            <span className="footer-title text-2xl font-extrabold">Menu</span>
+            <div class="mt-5">
+              <a href="/restaurant" className="link link-hover block mt-2">
+                매장 키오스크 가이드
+              </a>
+              <a href="/transportation" className="link link-hover block mt-2">
+                교통앱 가이드
+              </a>
+              <a href="/mobilebanking" className="link link-hover block mt-2">
+                모바일뱅킹앱 가이드
+              </a>
+              <a href="/utility" className="link link-hover block mt-2">
+                유틸리티 서비스 가이드
+              </a>
+            </div>
           </div>
-          <div className="mx-12">
-            <span className="footer-title text-2xl font-semibold ">
+          <div className="mx-12 text-black">
+            <span className="footer-title text-2xl font-extrabold ">
               Information
             </span>
-            <div className="Phone h-6 relative">
+            <div className="Phone h-6 relative mt-5 text-black">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 25 23.5"
@@ -464,7 +506,7 @@ function FooterComp() {
                   fill="white"
                 />
               </svg>
-              <div className="phonenum left-[30px] top-0 mt-2 absolute text-white font-light">
+              <div className="phonenum left-[30px] top-0 mt-2 absolute text-black font-semibold">
                 02-1234-1234
               </div>
             </div>
@@ -481,7 +523,7 @@ function FooterComp() {
                   fill="white"
                 />
               </svg>
-              <div className="phonenum left-[30px] top-0 mt-4 absolute text-white font-light">
+              <div className="phonenum left-[30px] top-0 mt-4 absolute text-black font-semibold">
                 xpert@gmail.com
               </div>
             </div>
@@ -619,6 +661,7 @@ function Main() {
         <Routes>
           <Route path="/" element={<Init />} />
           <Route path="/guide" element={<Guide />} />
+          <Route path="/detail" element={<Detail />} />
         </Routes>
       </Router>
       <FooterComp />

@@ -3,6 +3,7 @@ import "./style.css";
 import mcImage from "./icons/mcdonalds.png";
 import likeImage from "./icons/like.png";
 import eyeImage from "./icons/eye.png";
+import bgImage from "./icons/sub-bg.jpg";
 function GuideSearch() {
   return (
     <div class="pb-10">
@@ -156,10 +157,19 @@ function Button() {
 function GuideHeader() {
   return (
     <div>
+      {/* bg-center bg-no-repeat bg-cover bg-blend-multiply bg-indigo-900 */}
       <section
-        class="flex items-center justify-center bg-center bg-no-repeat bg-cover bg-blend-multiply bg-indigo-900"
+        class="flex items-center justify-center"
         style={{
-          backgroundSize: "100% auto",
+          background: `linear-gradient(
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.6) 75%,
+            rgba(255, 255, 255, 1) 100%
+          ), url(${bgImage})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          // backgroundImage: `url(${bgImage})`,
+          // backgroundSize: "100% auto",
           width: "100%",
           height: "450px",
         }}
@@ -250,7 +260,7 @@ function Card() {
 
             <div class="text-center text-stone-500 font-medium">30,000회</div>
             <a
-              href="#"
+              href="/detail"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               more

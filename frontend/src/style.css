@@ -294,17 +294,16 @@
   width: 185px;
 }
 
-
 /* Slider part css*/
 .XpertXpert {
   color: slate-500;
-  font-size: 14px; 
+  font-size: 14px;
 }
 
-.Title{
-width: 364px;
-height: 59px;
-flex-shrink: 0;
+.Title {
+  width: 364px;
+  height: 59px;
+  flex-shrink: 0;
 }
 
 .UserComment3 {
@@ -318,10 +317,10 @@ flex-shrink: 0;
   left: 0;
   top: 0;
   position: absolute;
-  background-color: #DEE7FF80;
+  background-color: #dee7ff80;
   backdrop-filter: blur(3px); /* 블러 효과를 원하면 추가 */
   border-radius: 10px;
-  box-shadow: 2px 5px 10px 3px  #DEE7FF80;
+  box-shadow: 2px 5px 10px 3px #dee7ff80;
 }
 /*이용 후기 subtitle*/
 .subtitle {
@@ -335,7 +334,7 @@ flex-shrink: 0;
   font-weight: bold; /* font-bold */
 }
 
-.text{
+.text {
   width: 432px;
   left: 20px;
   top: 137px;
@@ -348,4 +347,20 @@ flex-shrink: 0;
 
 .link:hover {
   text-decoration: underline; /* 밑줄 추가 */
+}
+
+.bg-main {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 20%,
+    rgba(255, 255, 255, 0.6) 75%,
+    /* rgba(255, 255, 255, 0.8) 80%,
+				rgba(255, 255, 255, 0.9) 85%,
+				rgba(255, 255, 255, 0.9) 90%, */
+      rgba(255, 255, 255, 1) 100%
+  );
+  /* url(".\\img\\sub-bg.jpg"); */
+
+  /* background-image: url('/bg.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover;
 }
