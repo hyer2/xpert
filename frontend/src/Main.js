@@ -143,9 +143,9 @@ function MainComp() {
 function Contents() {
   const [likeCount, setLikeCount] = useState(0);
 
-    const increaseLikes = () => {
-        setLikeCount(likeCount + 1);
-    };
+  const increaseLikes = () => {
+    setLikeCount(likeCount + 1);
+  };
 
   return (
     <div class="bg-white rounded-lg ">
@@ -253,13 +253,18 @@ function Contents() {
             </div>
 
             <div class="flex items-center">
-            <div className="text-center text-stone-500 text-[15px] font-medium mr-2">
-                <img src={likeImage} onClick={increaseLikes} style={{ cursor: 'pointer' }} alt="Like" />
-            </div>
+              <div className="text-center text-stone-500 text-[15px] font-medium mr-2">
+                <img
+                  src={likeImage}
+                  onClick={increaseLikes}
+                  style={{ cursor: "pointer" }}
+                  alt="Like"
+                />
+              </div>
 
-            <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
+              <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
                 {likeCount}개
-            </div>
+              </div>
 
               <div class="text-center text-stone-500 text-[15px] font-medium mr-2">
                 <img src={eyeImage} />
@@ -305,12 +310,12 @@ function HeaderComp() {
             Guide for X-Generation
           </p>
           <p class="custom-paragraph text-white opacity-80% text-base md:text-[15px] lg:text-[15px] font-medium">
-    Xpert는 디지털 기기 조작을 어려워하는 중장년층분들을 위해 
-    디지털 기기 사용법을 알려주는 플랫폼, Xpert입니다.
-    <br />
-    Xpert는 매장 키오스크 사용법부터 교통앱, 모바일 뱅킹 앱, 유틸리티 앱과 같은 다양한 디지털 서비스 사용법을 쉽고 친절하게
-    안내합니다.
-    </p>
+            Xpert는 디지털 기기 조작을 어려워하는 중장년층분들을 위해 디지털
+            기기 사용법을 알려주는 플랫폼, Xpert입니다.
+            <br />
+            Xpert는 매장 키오스크 사용법부터 교통앱, 모바일 뱅킹 앱, 유틸리티
+            앱과 같은 다양한 디지털 서비스 사용법을 쉽고 친절하게 안내합니다.
+          </p>
         </div>
       </section>
     </div>
@@ -359,7 +364,7 @@ function Nav() {
               <li>
                 <a
                   class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
-                  href="/guide"
+                  href="/shop"
                 >
                   <span class="relative flex items-center justify-center">
                     매장 키오스크 가이드
@@ -370,7 +375,7 @@ function Nav() {
               <li>
                 <a
                   class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
-                  href="/guide"
+                  href="/traffic"
                 >
                   <span class="relative flex items-center justify-center">
                     교통 앱 가이드
@@ -380,7 +385,7 @@ function Nav() {
               <li>
                 <a
                   class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
-                  href="/guide"
+                  href="/banking"
                 >
                   <span class="relative flex items-center justify-center">
                     모바일뱅킹 앱 가이드
@@ -390,7 +395,7 @@ function Nav() {
               <li>
                 <a
                   class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
-                  href="/guide"
+                  href="/utility"
                 >
                   <span class="relative flex items-center justify-center">
                     유틸리티 앱 가이드
@@ -498,147 +503,155 @@ function Rankings() {
 */
 function FooterComp() {
   return (
-<footer class=" bg-white rounded-lg shadow dark:bg-gray-900 m-4" style={{ marginTop: "200px" ,
-background: `linear-gradient(
+    <footer
+      class=" bg-white rounded-lg shadow dark:bg-gray-900 m-4"
+      style={{
+        marginTop: "200px",
+        background: `linear-gradient(
   rgba(255, 255, 255, 1) 0%,
 
 rgba(255, 255, 255, 0) 100%
 ), url(${bgImage})`,
-backgroundRepeat: "no-repeat",
+        backgroundRepeat: "no-repeat",
         backgroundSize: "100% auto",
         // backgroundImage: `url(${bgImage})`,
         // backgroundSize: "100% auto",
         width: "100%",
-        height: "100%"}}>
-  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-    <span className="flex justify-center text-white mt-20 footer-title text-2xl font-extrabold">Menu</span>
-    <ul class="mt-4 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
-      <li>
-        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/restaurant">
-          매장 키오스크
-        </a>
-      </li>
-
-      <li>
-        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/transportation">
-          교통 앱
-        </a>
-      </li>
-
-      <li>
-        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/transportation">
-          모바일뱅킹 앱
-        </a>
-      </li>
-
-      <li>
-        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/transportation">
-          유틸리티 앱
-        </a>
-      </li>
-      </ul>
+        height: "100%",
+      }}
+    >
       <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
-      <span className="flex justify-center text-white mt-8  footer-title text-2xl font-extrabold">Contact Us</span>
-      <div className="flex justify-center text-white mt-4 footer-title text-sm font-bold">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 25 23.5"
-                width="17"
-                height="17"
-                style={{ transform: "translateY(0px)" }}
-              >
-                <path
-                  d="M24.537 17.0082L19.0682 14.8015C18.8346 14.7078 18.5749 14.688 18.3283 14.7452C18.0818 14.8024 17.8616 14.9335 17.701 15.1187L15.2791 17.9047C11.4781 16.2174 8.41919 13.3374 6.62706 9.75868L9.5861 7.47841C9.78321 7.32747 9.92272 7.12017 9.98352 6.8879C10.0443 6.65564 10.0231 6.41104 9.92302 6.19115L7.57923 1.04214C7.46942 0.80511 7.2752 0.611579 7.03007 0.494923C6.78494 0.378267 6.50426 0.345798 6.23643 0.403115L1.15822 1.50647C0.899996 1.56262 0.669609 1.69951 0.50466 1.8948C0.339711 2.0901 0.249941 2.33227 0.25 2.58179C0.25 14.3739 10.4015 23.9134 22.9066 23.9134C23.1717 23.9136 23.4291 23.8291 23.6366 23.6738C23.8441 23.5185 23.9896 23.3015 24.0492 23.0583L25.2211 18.2771C25.2816 18.0237 25.2464 17.7584 25.1215 17.5268C24.9967 17.2952 24.79 17.1118 24.537 17.0082Z"
-                  fill="white"
-                />
-              </svg>
-              <div className="phonenum ml-2 relative text-white font-semibold">
-                  02-1234-1234
-              </div>
-            </div>
-            <div className="flex justify-center mt-4 text-white footer-title text-sm font-bold">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 40 32"
-                width="20"
-                height="16"
-                 
-              >
-                <path
-                  d="M35.5938 0.913452H3.90625C1.88693 0.913452 0.25 2.64832 0.25 4.78845V28.0385C0.25 30.1786 1.88693 31.9135 3.90625 31.9135H35.5938C37.6131 31.9135 39.25 30.1786 39.25 28.0385V4.78845C39.25 2.64832 37.6131 0.913452 35.5938 0.913452ZM35.5938 4.78845V8.0826C33.8858 9.55664 31.163 11.8487 25.342 16.6795C24.0592 17.7489 21.5181 20.3181 19.75 20.2881C17.9822 20.3184 15.4403 17.7485 14.158 16.6795C8.33793 11.8494 5.6144 9.55688 3.90625 8.0826V4.78845H35.5938ZM3.90625 28.0385V13.055C5.65165 14.5283 8.12686 16.5959 11.8996 19.7269C13.5645 21.1158 16.4801 24.182 19.75 24.1634C23.0038 24.182 25.8825 21.1603 27.5997 19.7275C31.3724 16.5966 33.8483 14.5285 35.5938 13.055V28.0385H3.90625Z"
-                  fill="white"
-                />
-              </svg>
-              <div className="phonenum ml-2 relative text-white font-semibold">
-                xpert@gmail.com
-              </div>
-            </div>
-    <ul class="mt-8 mb-8 flex justify-center gap-6 md:gap-8">
-      <li>
-        <a
-          href="/"
-          rel="noreferrer"
-          target="_blank"
-          class="text-white"
-        >
-          
-          <span class="sr-only">Facebook</span>
-          <svg
-            class="h-6 w-6"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </a>
-      </li>
+        <span className="flex justify-center text-white mt-20 footer-title text-2xl font-extrabold">
+          Menu
+        </span>
+        <ul class="mt-4 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+          <li>
+            <a
+              class="font-bold text-sm text-white transition link link-hover block mt-2"
+              href="/restaurant"
+            >
+              매장 키오스크
+            </a>
+          </li>
 
-      <li>
-        <a
-          href="/"
-          rel="noreferrer"
-          target="_blank"
-          class="text-white"
-        >
-          <span class="sr-only">Instagram</span>
-          <svg
-            class="h-6 w-6"
-            fill="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </a>
-      </li>
-      <li>
-                <a href="https://www.youtube.com/">
-                  <img
-                    src={blogImage}
-                    alt="blog"
-                    width="30"
-                    height="50"
-                    viewBox="0 0 58 56"
-                    style={{ transform: "translateY(-2px)" }}
+          <li>
+            <a
+              class="font-bold text-sm text-white transition link link-hover block mt-2"
+              href="/transportation"
+            >
+              교통 앱
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="font-bold text-sm text-white transition link link-hover block mt-2"
+              href="/transportation"
+            >
+              모바일뱅킹 앱
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="font-bold text-sm text-white transition link link-hover block mt-2"
+              href="/transportation"
+            >
+              유틸리티 앱
+            </a>
+          </li>
+        </ul>
+        <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+          <span className="flex justify-center text-white mt-8  footer-title text-2xl font-extrabold">
+            Contact Us
+          </span>
+          <div className="flex justify-center text-white mt-4 footer-title text-sm font-bold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 25 23.5"
+              width="17"
+              height="17"
+              style={{ transform: "translateY(0px)" }}
+            >
+              <path
+                d="M24.537 17.0082L19.0682 14.8015C18.8346 14.7078 18.5749 14.688 18.3283 14.7452C18.0818 14.8024 17.8616 14.9335 17.701 15.1187L15.2791 17.9047C11.4781 16.2174 8.41919 13.3374 6.62706 9.75868L9.5861 7.47841C9.78321 7.32747 9.92272 7.12017 9.98352 6.8879C10.0443 6.65564 10.0231 6.41104 9.92302 6.19115L7.57923 1.04214C7.46942 0.80511 7.2752 0.611579 7.03007 0.494923C6.78494 0.378267 6.50426 0.345798 6.23643 0.403115L1.15822 1.50647C0.899996 1.56262 0.669609 1.69951 0.50466 1.8948C0.339711 2.0901 0.249941 2.33227 0.25 2.58179C0.25 14.3739 10.4015 23.9134 22.9066 23.9134C23.1717 23.9136 23.4291 23.8291 23.6366 23.6738C23.8441 23.5185 23.9896 23.3015 24.0492 23.0583L25.2211 18.2771C25.2816 18.0237 25.2464 17.7584 25.1215 17.5268C24.9967 17.2952 24.79 17.1118 24.537 17.0082Z"
+                fill="white"
+              />
+            </svg>
+            <div className="phonenum ml-2 relative text-white font-semibold">
+              02-1234-1234
+            </div>
+          </div>
+          <div className="flex justify-center mt-4 text-white footer-title text-sm font-bold">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 40 32"
+              width="20"
+              height="16"
+            >
+              <path
+                d="M35.5938 0.913452H3.90625C1.88693 0.913452 0.25 2.64832 0.25 4.78845V28.0385C0.25 30.1786 1.88693 31.9135 3.90625 31.9135H35.5938C37.6131 31.9135 39.25 30.1786 39.25 28.0385V4.78845C39.25 2.64832 37.6131 0.913452 35.5938 0.913452ZM35.5938 4.78845V8.0826C33.8858 9.55664 31.163 11.8487 25.342 16.6795C24.0592 17.7489 21.5181 20.3181 19.75 20.2881C17.9822 20.3184 15.4403 17.7485 14.158 16.6795C8.33793 11.8494 5.6144 9.55688 3.90625 8.0826V4.78845H35.5938ZM3.90625 28.0385V13.055C5.65165 14.5283 8.12686 16.5959 11.8996 19.7269C13.5645 21.1158 16.4801 24.182 19.75 24.1634C23.0038 24.182 25.8825 21.1603 27.5997 19.7275C31.3724 16.5966 33.8483 14.5285 35.5938 13.055V28.0385H3.90625Z"
+                fill="white"
+              />
+            </svg>
+            <div className="phonenum ml-2 relative text-white font-semibold">
+              xpert@gmail.com
+            </div>
+          </div>
+          <ul class="mt-8 mb-8 flex justify-center gap-6 md:gap-8">
+            <li>
+              <a href="/" rel="noreferrer" target="_blank" class="text-white">
+                <span class="sr-only">Facebook</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+                    clip-rule="evenodd"
                   />
-                </a>
-              </li>
-    </ul>
-    </div>
-  </div>
-</footer>
-  )
-};
- 
+                </svg>
+              </a>
+            </li>
+
+            <li>
+              <a href="/" rel="noreferrer" target="_blank" class="text-white">
+                <span class="sr-only">Instagram</span>
+                <svg
+                  class="h-6 w-6"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/">
+                <img
+                  src={blogImage}
+                  alt="blog"
+                  width="30"
+                  height="50"
+                  viewBox="0 0 58 56"
+                  style={{ transform: "translateY(-2px)" }}
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
+}
 
 /*function FooterComp() {
   return (
