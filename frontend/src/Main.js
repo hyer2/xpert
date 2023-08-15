@@ -155,7 +155,7 @@ function Contents() {
               </div>
               <div class="ml-2 lg:ml-5 text-center text-black text-sm lg:text-xl font-semibold">
                 맥도날드
-                <span class="inline-flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5 sm:flex hidden">
+                <div class="flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5 hidden lg:inline-flex">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -172,7 +172,7 @@ function Contents() {
                   </svg>
 
                   <p class="whitespace-nowrap text-sm">패스트푸드</p>
-                </span>
+                </div>
               </div>
             </div>
             <div class="flex items-center">
@@ -184,9 +184,9 @@ function Contents() {
             </div>
           </div>
 
-          <div class="w-[95%] border border-zinc-300 sm:flex hidden"></div>
+          <div class="w-[95%] border border-zinc-300 hidden lg:flex"></div>
 
-          <div class="h-[20%] flex justify-between items-center mr-10 mt-1 sm:flex hidden ">
+          <div class="h-[20%] flex justify-between items-center mr-10 mt-1 hidden lg:flex">
             <div class="flex items-center">
               <div class="items-center text-center text-blue-800 font-semibold text-[10px] lg:text-sm mr-2">
                 사용난이도
