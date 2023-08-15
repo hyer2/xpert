@@ -75,7 +75,7 @@ function Slider() {
   };
 
   return (
-    <div className="SliderWrapper">
+    <div className="SliderWrapper max-w-full">
       <div className="Comment w-100 h-96 relative pb-100 text-center mt-12">
         <div className="titleText absolute left-10 top-0 inset-x-0 text-center">
           <span
@@ -96,7 +96,7 @@ function Slider() {
           style={{ position: "relative" }}
         >
           <div
-            className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl gap-20"
+            className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen gap-20"
             style={{
               transform: `translateX(-${currentIndex * 100}%)`,
               transition: `transform ${
@@ -307,10 +307,10 @@ function HeaderComp() {
           backgroundSize: "cover",
           // backgroundImage: `url(${bgImage})`,
           // backgroundSize: "100% auto",
-          width: "100%",
-          height: "450px",
+          // width: "100%",
+          // height: "450px",
         }}
-        className="mt-10"
+        className="mt-10 w-full h-[550px]"
         // bg-center bg-no-repeat bg-cover bg-blend-multiply
       >
         <div class="h-[20px]"></div>
@@ -379,7 +379,7 @@ function Nav() {
                   href="/shop"
                 >
                   <span class="relative flex items-center justify-center">
-                    매장 키오스크 가이드
+                    매장 키오스크
                   </span>
                 </a>
               </li>
@@ -390,7 +390,7 @@ function Nav() {
                   href="/traffic"
                 >
                   <span class="relative flex items-center justify-center">
-                    교통 앱 가이드
+                    교통 앱
                   </span>
                 </a>
               </li>
@@ -400,7 +400,7 @@ function Nav() {
                   href="/banking"
                 >
                   <span class="relative flex items-center justify-center">
-                    모바일뱅킹 앱 가이드
+                    모바일뱅킹 앱
                   </span>
                 </a>
               </li>
@@ -410,7 +410,7 @@ function Nav() {
                   href="/utility"
                 >
                   <span class="relative flex items-center justify-center">
-                    유틸리티 앱 가이드
+                    유틸리티 앱
                   </span>
                 </a>
               </li>
@@ -424,8 +424,8 @@ function Nav() {
 
 function Search() {
   return (
-    <div class="flex justify-center w-screen">
-      <div class="w-[50%]">
+    <div class="flex justify-center w-full">
+      <div class="w-[300px] md:w-[600px] lg:w-[700px] xl:w-[800px] 2xl:w-[1000px]">
         <form>
           <label
             htmlFor="default-search"
@@ -516,7 +516,7 @@ function Rankings() {
 function FooterComp() {
   return (
     <footer
-      class=" bg-white rounded-lg shadow dark:bg-gray-900 m-4"
+      class=" bg-white dark:bg-gray-900"
       style={{
         marginTop: "200px",
         background: `linear-gradient(
@@ -540,7 +540,7 @@ rgba(255, 255, 255, 0) 100%
           <li>
             <a
               class="font-bold text-sm text-white transition link link-hover block mt-2"
-              href="/restaurant"
+              href="/shop"
             >
               매장 키오스크
             </a>
@@ -549,7 +549,7 @@ rgba(255, 255, 255, 0) 100%
           <li>
             <a
               class="font-bold text-sm text-white transition link link-hover block mt-2"
-              href="/transportation"
+              href="/traffic"
             >
               교통 앱
             </a>
@@ -558,7 +558,7 @@ rgba(255, 255, 255, 0) 100%
           <li>
             <a
               class="font-bold text-sm text-white transition link link-hover block mt-2"
-              href="/transportation"
+              href="/banking"
             >
               모바일뱅킹 앱
             </a>
@@ -567,7 +567,7 @@ rgba(255, 255, 255, 0) 100%
           <li>
             <a
               class="font-bold text-sm text-white transition link link-hover block mt-2"
-              href="/transportation"
+              href="/utility"
             >
               유틸리티 앱
             </a>

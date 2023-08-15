@@ -21,162 +21,182 @@ function GuideSearch() {
     setDropdownOpen(false);
   };
 
+  const [inputValue, setInputValue] = useState("");
+
+  // 버튼 클릭 핸들러
+  const handleButtonClick = (e) => {
+    const value = e.target.getAttribute("data-value");
+    setInputValue(value);
+  };
+
   return (
-    <div className="flex mt-8">
-      <label
-        htmlFor="search-dropdown"
-        className="mb-8 text-sm font-medium text-gray-900 sr-only dark:text-white"
-      >
-        Your Email
-      </label>
-      <div className="flex mr-8">
-        <button
-          id="dropdown-button"
-          className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-5 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${
-            isDropdownOpen ? "rounded-lg" : "rounded-lg"
-          }`}
-          style={{ width: "130px", justifyContent: "space-between" }} // 버튼 넓이 고정 및 내용 가로 정렬
-          onClick={toggleDropdown}
-          type="button"
-        >
-          <span className="flex items-center">
-            {selectedCategory === "true" ? "전체" : selectedCategory}
-          </span>
-          <svg
-            className={`w-2.5 h-2.5 transform ${
-              isDropdownOpen ? "rotate-180" : "rotate-0"
-            }`}
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 10 6"
+    <div class="items-center justify-center">
+      <div>
+        <div className="flex mt-8">
+          <label
+            htmlFor="search-dropdown"
+            className="mb-8 text-sm font-medium text-gray-900 sr-only dark:text-white"
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m1 2 4 4 4-4"
-            />
-          </svg>
-        </button>
-        {isDropdownOpen && (
-          <div
-            id="dropdown"
-            className="absolute  mt-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-          >
-            <ul
-              className="py-2 text-sm text-gray-700 dark:text-gray-200"
-              aria-labelledby="dropdown-button"
+            Your Email
+          </label>
+          <div className="flex mr-8">
+            <button
+              id="dropdown-button"
+              className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-5 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${
+                isDropdownOpen ? "rounded-lg" : "rounded-lg"
+              }`}
+              style={{ width: "130px", justifyContent: "space-between" }} // 버튼 넓이 고정 및 내용 가로 정렬
+              onClick={toggleDropdown}
+              type="button"
             >
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("전체")}
+              <span className="flex items-center">
+                {selectedCategory === "true" ? "전체" : selectedCategory}
+              </span>
+              <svg
+                className={`w-2.5 h-2.5 transform ${
+                  isDropdownOpen ? "rotate-180" : "rotate-0"
+                }`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m1 2 4 4 4-4"
+                />
+              </svg>
+            </button>
+            {isDropdownOpen && (
+              <div
+                id="dropdown"
+                className="absolute  mt-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdown-button"
                 >
-                  전체
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("음식점")}
-                >
-                  음식점
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("카페·디저트")}
-                >
-                  카페·디저트
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("영화관")}
-                >
-                  영화관
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("주차시스템")}
-                >
-                  주차시스템
-                </button>
-              </li>
-            </ul>
+                  <li>
+                    <button
+                      type="button"
+                      className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={() => handleDropdownItemClick("전체")}
+                    >
+                      전체
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={() => handleDropdownItemClick("음식점")}
+                    >
+                      음식점
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={() => handleDropdownItemClick("카페")}
+                    >
+                      카페
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={() => handleDropdownItemClick("영화관")}
+                    >
+                      영화관
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={() => handleDropdownItemClick("주차시스템")}
+                    >
+                      주차시스템
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
           </div>
-        )}
+          <div className="relative w-full">
+            <form>
+              <input
+                type="search"
+                id="search-dropdown"
+                className="text-[15px] block p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
+                placeholder="검색어를 입력하세요."
+                required
+                value={inputValue}
+                readOnly
+              />
+              <button
+                type="submit"
+                className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                검색
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
-      <div className="relative w-full">
-        <form>
-          <input
-            type="search"
-            id="search-dropdown"
-            className="text-[15px] block p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
-            placeholder="검색어를 입력하세요."
-            required
-          />
+      <div>
+        <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16 hidden lg:flex">
           <button
-            type="submit"
-            className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            type="button"
+            data-value="맥도날드"
+            onClick={handleButtonClick}
+            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
           >
-            검색
+            맥도날드
           </button>
-        </form>
+          <button
+            type="button"
+            data-value="베스킨라빈스"
+            onClick={handleButtonClick}
+            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
+          >
+            베스킨라빈스
+          </button>
+          <button
+            type="button"
+            data-value="공차"
+            onClick={handleButtonClick}
+            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
+          >
+            공차
+          </button>
+          <button
+            type="button"
+            data-value="버거킹"
+            onClick={handleButtonClick}
+            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-3 text-center mb-2 w-32"
+          >
+            버거킹
+          </button>
+          <button
+            type="button"
+            data-value="서브웨이"
+            onClick={handleButtonClick}
+            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
+          >
+            서브웨이
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
-function Button() {
-  return (
-    <div>
-      <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16 hidden lg:flex">
-        <button
-          type="button"
-          class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-        >
-          맥도날드
-        </button>
-        <button
-          type="button"
-          class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-        >
-          베스킨라빈스
-        </button>
-        <button
-          type="button"
-          class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-        >
-          공차
-        </button>
-        <button
-          type="button"
-          class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-3 text-center mb-2 w-32"
-        >
-          버거킹
-        </button>
-        <button
-          type="button"
-          class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-        >
-          서브웨이
-        </button>
-      </div>
-    </div>
-  );
-}
 function GuideHeader() {
   return (
     <div>
@@ -197,10 +217,7 @@ function GuideHeader() {
           height: "450px",
         }}
       >
-        <div class="items-center justify-center">
-          <GuideSearch />
-          <Button />
-        </div>
+        <GuideSearch />
       </section>
     </div>
   );
