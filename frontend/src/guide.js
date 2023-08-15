@@ -123,7 +123,7 @@ function GuideSearch() {
           <input
             type="search"
             id="search-dropdown"
-            className="text-[15px] block p-2.5 w-full z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+            className="text-[15px] block p-2.5 w-[500px] lg:w-[700px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
             placeholder="검색어를 입력하세요."
             required
           />
@@ -416,7 +416,7 @@ function Pagination() {
 }
 function Guide() {
   return (
-    <div class="w-full h-full overflow-hidden">
+    <div class="w-full h-full">
       <div class="items-center justify-center">
         <GuideHeader />
       </div>
