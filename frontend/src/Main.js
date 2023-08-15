@@ -155,7 +155,7 @@ function Contents() {
               </div>
               <div class="ml-2 lg:ml-5 text-center text-black text-sm lg:text-xl font-semibold">
                 맥도날드
-                <span class="inline-flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5">
+                <span class="inline-flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5 sm:flex hidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
