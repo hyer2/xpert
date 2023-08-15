@@ -173,7 +173,7 @@ function Detail() {
 
             <div class="w-full h-full">
               <div
-                class="h-[70%] mx-auto rounded-lg bg-pink-200 flex justify-center"
+                class="h-[70%] mx-auto rounded-lg flex justify-center"
                 style={{ backgroundColor: "rgba(219, 234, 254, 0.3)" }}
               >
                 <div class="p-5">
