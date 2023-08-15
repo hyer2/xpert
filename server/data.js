@@ -1,9 +1,17 @@
+import mcdonaldsLogo from './icon/mcdonalds.png';
+import br from  './icon/베스킨라빈스.jpg';
+import burgerking from  './icon/버거킹.jpg';
+
+
+
+
 class GuideItem {
-    constructor(category, subcategory, name, level) {
+    constructor(category, subcategory, name, level, image) {
       this.category = category;
       this.subcategory = subcategory;
       this.name = name;
       this.level = level;
+      this.image = image;
     }
   }
   
@@ -22,6 +30,7 @@ class DataStorage {
                 item.subcategory.includes(query) ||
                 item.name.includes(query) ||
                 item.level.toString().includes(query)
+                
                 );
             });
     }
@@ -39,9 +48,9 @@ class DataStorage {
 // GuideItem 클래스 인스턴스 생성
 
 //매장 키오스크
-const kf1 = new GuideItem("매장 키오스크", "패스트푸드", "맥도날드", 5);
-const kf2 = new GuideItem("매장 키오스크", "패스트푸드", "배스킨라빈스", 4);
-const kf3 = new GuideItem("매장 키오스크", "패스트푸드", "버거킹", 4);
+const kf1 = new GuideItem("매장 키오스크", "패스트푸드", "맥도날드", 5,mcdonaldsLogo);
+const kf2 = new GuideItem("매장 키오스크", "패스트푸드", "배스킨라빈스", 4,br);
+const kf3 = new GuideItem("매장 키오스크", "패스트푸드", "버거킹", 4,burgerking);
 const kf4 = new GuideItem("매장 키오스크", "패스트푸드", "KFC", 4);
 const kf5 = new GuideItem("매장 키오스크", "패스트푸드", "샐러디", 4);
 
@@ -152,3 +161,4 @@ console.log("금융:", financeItems);
 const query = "맥도";
 const searchResult = storage.searchData(query);
 console.log("Search result for '" + query + "':", searchResult);
+
