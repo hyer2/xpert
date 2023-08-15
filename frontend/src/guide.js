@@ -6,12 +6,10 @@ import eyeImage from "./icons/eye.png";
 import bgImage from "./icons/sub-bg.jpg";
 import React, { useState } from "react";
 
-
-
 function GuideSearch() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState('전체');
-  const [searchTerm, setSearchTerm] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState("전체");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -23,44 +21,59 @@ function GuideSearch() {
     setDropdownOpen(false);
   };
 
-
   return (
     <div className="flex mt-8">
-      <label htmlFor="search-dropdown" className="mb-8 text-sm font-medium text-gray-900 sr-only dark:text-white">
+      <label
+        htmlFor="search-dropdown"
+        className="mb-8 text-sm font-medium text-gray-900 sr-only dark:text-white"
+      >
         Your Email
       </label>
       <div className="flex mr-8">
-      <button
-        id="dropdown-button"
-        className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-5 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${isDropdownOpen ? 'rounded-lg' : 'rounded-lg'}`}
-        style={{ width: '130px', justifyContent: 'space-between' }} // 버튼 넓이 고정 및 내용 가로 정렬
-        onClick={toggleDropdown}
-        type="button"
-      >
-        <span className="flex items-center">
-          {selectedCategory === 'true' ? '전체' : selectedCategory}
-        </span>
-        <svg
-          className={`w-2.5 h-2.5 transform ${isDropdownOpen ? 'rotate-180' : 'rotate-0'}`}
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 10 6"
+        <button
+          id="dropdown-button"
+          className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-5 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${
+            isDropdownOpen ? "rounded-lg" : "rounded-lg"
+          }`}
+          style={{ width: "130px", justifyContent: "space-between" }} // 버튼 넓이 고정 및 내용 가로 정렬
+          onClick={toggleDropdown}
+          type="button"
         >
-          <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 2 4 4 4-4" />
-        </svg>
-      </button>
+          <span className="flex items-center">
+            {selectedCategory === "true" ? "전체" : selectedCategory}
+          </span>
+          <svg
+            className={`w-2.5 h-2.5 transform ${
+              isDropdownOpen ? "rotate-180" : "rotate-0"
+            }`}
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 10 6"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 2 4 4 4-4"
+            />
+          </svg>
+        </button>
         {isDropdownOpen && (
           <div
             id="dropdown"
             className="absolute  mt-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
           >
-            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-            <li>
+            <ul
+              className="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="dropdown-button"
+            >
+              <li>
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick('전체')}
+                  onClick={() => handleDropdownItemClick("전체")}
                 >
                   전체
                 </button>
@@ -69,16 +82,16 @@ function GuideSearch() {
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick('음식점')}
+                  onClick={() => handleDropdownItemClick("음식점")}
                 >
-                  음식점 
+                  음식점
                 </button>
               </li>
               <li>
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick('카페·디저트')}
+                  onClick={() => handleDropdownItemClick("카페·디저트")}
                 >
                   카페·디저트
                 </button>
@@ -87,7 +100,7 @@ function GuideSearch() {
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick('영화관')}
+                  onClick={() => handleDropdownItemClick("영화관")}
                 >
                   영화관
                 </button>
@@ -96,7 +109,7 @@ function GuideSearch() {
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick('주차시스템')}
+                  onClick={() => handleDropdownItemClick("주차시스템")}
                 >
                   주차시스템
                 </button>
@@ -110,28 +123,26 @@ function GuideSearch() {
           <input
             type="search"
             id="search-dropdown"
-            className="text-[15px] block p-2.5 w-full z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
+            className="text-[15px] block p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
             placeholder="검색어를 입력하세요."
             required
           />
           <button
             type="submit"
             className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-           
           >
             검색
           </button>
-          </form>
-        </div>
+        </form>
       </div>
+    </div>
   );
 }
-
 
 function Button() {
   return (
     <div>
-      <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16">
+      <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16 hidden lg:flex">
         <button
           type="button"
           class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
@@ -205,11 +216,11 @@ function Card() {
 
         <div class="px-5 pb-5">
           <a href="#">
-            <h5 class="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            <h5 class="text-lg lg:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-5 lg:mb-0">
               맥도날드
             </h5>
           </a>
-          <div class="flex items-center mt-2.5 mb-5">
+          <div class="flex items-center mt-2.5 mb-5 hidden lg:flex ">
             <svg
               class="w-4 h-4 text-yellow-300 mr-1"
               aria-hidden="true"
@@ -260,17 +271,21 @@ function Card() {
             </span>
           </div>
           <div class="flex items-center justify-between">
-            <div class="text-center text-stone-500 font-medium">
+            <div class="text-center text-stone-500 font-medium hidden xl:flex">
               <img src={likeImage} />
             </div>
 
-            <div class="text-center text-stone-500 font-medium">1,130개</div>
+            <div class="text-center text-stone-500 font-medium hidden xl:flex">
+              1,130개
+            </div>
 
-            <div class="text-center text-stone-500 font-medium">
+            <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
               <img src={eyeImage} />
             </div>
 
-            <div class="text-center text-stone-500 font-medium">30,000회</div>
+            <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
+              30,000회
+            </div>
             <a
               href="/detail"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -285,7 +300,7 @@ function Card() {
 }
 function Cards() {
   return (
-    <div class="grid grid-cols-1 md:grid-cols-4 p-20 gap-10">
+    <div class="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
       <Card />
       <Card />
       <Card />
@@ -401,7 +416,7 @@ function Pagination() {
 }
 function Guide() {
   return (
-    <div>
+    <div class="w-full h-full">
       <div class="items-center justify-center">
         <GuideHeader />
       </div>
