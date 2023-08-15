@@ -32,6 +32,16 @@ import {
   useLocation,
 } from "react-router-dom";
 
+const dataModule = require('./data');
+const allData = dataModule.allData;
+const mainItems = dataModule.mainItems;
+const kioskItems = dataModule.kioskItems;
+const trafficItems = dataModule.trafficItems;
+const financeItems = dataModule.financeItems;
+const utilityItems = dataModule.utilityItems;
+
+
+
 function Init() {
   return (
     <div>
@@ -130,10 +140,6 @@ function MainComp() {
         >
           <div class="grid grid-cols-1 gap-4 lg:gap-8 flex items-center">
             <Contents />
-            <Contents />
-            <Contents />
-            <Contents />
-            <Contents />
           </div>
         </div>
       </div>
@@ -148,136 +154,142 @@ function Contents() {
   };
 
   return (
-    <div class="bg-white rounded-lg ">
-      <div className="w-full h-auto lg:w-[1016px] lg:h-[139px] relative shadow flex items-center">
-        <h1 class="w-[10%] justify-center items-center text-center text-gray-500 text-2xl lg:text-5xl font-bold">
-          1
-        </h1>
-        <div class="w-[20%] justify-center items-center rounded-lg">
-          <img src={mcImage} alt="mcdonalds" />
-        </div>
-
-        <div class="w-[70%] h-full">
-          <div class="h-[70%] flex justify-between items-center mr-10">
-            <div class="flex items-center">
-              <div class="ml-5 justify-center items-center text-center text-blue-800 font-extrabold text-[10px] lg:text-sm">
-                매장 키오스크
-              </div>
-              <div class="ml-2 lg:ml-5 text-center text-black text-sm lg:text-xl font-semibold">
-                맥도날드
-                <div class="flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5 hidden lg:inline-flex">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="-ms-1 me-1.5 h-4 w-4"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M14.25 7.756a4.5 4.5 0 100 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-
-                  <p class="whitespace-nowrap text-sm">패스트푸드</p>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center">
-              <button class="m-3 lg:m-0 w-full h-full bg-blue-300 rounded-lg hover:bg-blue-700">
-                <div class="items-center justify-center">
-                  <img src={infoImage} alt="Info Icon" />
-                </div>
-              </button>
-            </div>
+    <div>
+      {mainItems.map((data,index)=>(
+        <div key={index} class="bg-white rounded-lg ">
+        <div className="w-full h-auto lg:w-[1016px] lg:h-[139px] relative shadow flex items-center">
+          <h1 class="w-[10%] justify-center items-center text-center text-gray-500 text-2xl lg:text-5xl font-bold">
+            1
+          </h1>
+          <div class="w-[20%] justify-center items-center rounded-lg">
+            <img src={data.kf1} alt="" />
           </div>
-
-          <div class="w-[95%] border border-zinc-300 hidden lg:flex"></div>
-
-          <div class="h-[20%] flex justify-between items-center mr-10 mt-1 hidden lg:flex">
-            <div class="flex items-center">
-              <div class="items-center text-center text-blue-800 font-semibold text-[10px] lg:text-sm mr-2">
-                사용난이도
-              </div>
-              <div>
-                <div class="flex items-center space-x-1">
-                  <svg
-                    class="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    class="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    class="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    class="w-4 h-4 text-yellow-300"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
-                  <svg
-                    class="w-4 h-4 text-gray-300 dark:text-gray-500"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="currentColor"
-                    viewBox="0 0 22 20"
-                  >
-                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                  </svg>
+  
+          <div class="w-[70%] h-full">
+            <div class="h-[70%] flex justify-between items-center mr-10">
+              <div class="flex items-center">
+                <div class="ml-5 justify-center items-center text-center text-blue-800 font-extrabold text-[10px] lg:text-sm">
+                  {data.category}
+                </div>
+                <div class="ml-2 lg:ml-5 text-center text-black text-sm lg:text-xl font-semibold">
+                  {data.name}
+                  <div class="flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5 hidden lg:inline-flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="-ms-1 me-1.5 h-4 w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M14.25 7.756a4.5 4.5 0 100 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+  
+                    <p class="whitespace-nowrap text-sm">{data.subcategory}</p>
+                  </div>
                 </div>
               </div>
+              <div class="flex items-center">
+                <button class="m-3 lg:m-0 w-full h-full bg-blue-300 rounded-lg hover:bg-blue-700">
+                  <div class="items-center justify-center">
+                    <img src={infoImage} alt="Info Icon" />
+                  </div>
+                </button>
+              </div>
             </div>
-
-            <div class="flex items-center">
-              <div className="text-center text-stone-500 text-[15px] font-medium mr-2">
-                <img
-                  src={likeImage}
-                  onClick={increaseLikes}
-                  style={{ cursor: "pointer" }}
-                  alt="Like"
-                />
+  
+            <div class="w-[95%] border border-zinc-300 hidden lg:flex"></div>
+  
+            <div class="h-[20%] flex justify-between items-center mr-10 mt-1 hidden lg:flex">
+              <div class="flex items-center">
+                <div class="items-center text-center text-blue-800 font-semibold text-[10px] lg:text-sm mr-2">
+                  {data.level}
+                </div>
+                <div>
+                  <div class="flex items-center space-x-1">
+                    <svg
+                      class="w-4 h-4 text-yellow-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 22 20"
+                    >
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg
+                      class="w-4 h-4 text-yellow-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 22 20"
+                    >
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg
+                      class="w-4 h-4 text-yellow-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 22 20"
+                    >
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg
+                      class="w-4 h-4 text-yellow-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 22 20"
+                    >
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                    <svg
+                      class="w-4 h-4 text-gray-300 dark:text-gray-500"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="currentColor"
+                      viewBox="0 0 22 20"
+                    >
+                      <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                    </svg>
+                  </div>
+                </div>
               </div>
-
-              <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
-                {likeCount}개
-              </div>
-
-              <div class="text-center text-stone-500 text-[15px] font-medium mr-2">
-                <img src={eyeImage} />
-              </div>
-
-              <div class="text-center text-stone-500 text-[15px] font-medium">
-                30,000회
+  
+              <div class="flex items-center">
+                <div className="text-center text-stone-500 text-[15px] font-medium mr-2">
+                  <img
+                    src={likeImage}
+                    onClick={increaseLikes}
+                    style={{ cursor: "pointer" }}
+                    alt="Like"
+                  />
+                </div>
+  
+                <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
+                  {likeCount}개
+                </div>
+  
+                <div class="text-center text-stone-500 text-[15px] font-medium mr-2">
+                  <img src={eyeImage} />
+                </div>
+  
+                <div class="text-center text-stone-500 text-[15px] font-medium">
+                  {data.view}회
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+      ))}
+
     </div>
+    
   );
 }
 

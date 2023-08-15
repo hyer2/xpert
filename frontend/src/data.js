@@ -1,37 +1,37 @@
-import mcdonaldsLogo from './icons/mcdonalds.png';
-import br from  './icons/베스킨라빈스.jpg';
-import burgerking from  './icons/버거킹.jpg';
-import kfc from  './icons/kfc.jpg';
-import 샐러디 from  './icons/샐러디.jpeg';
-import cgv from  './icons/cgv.jpg';
-import 롯데시네마 from  './icons/롯데시네마.jpg';
-import 공차 from  './icons/공차.jpg';
-import 이디야 from  './icons/이디야.jpg';
-import 투썸 from  './icons/투썸.jpg';
-import 카카오택시 from  './icons/카카오택시.jpg';
-import 쏘카 from  './icons/socar.jpg';
-import 버스타고 from  './icons/버스타고.jpg';
-import 네이버지도 from  './icons/네이버지도.jpg';
-import 카카오맵 from  './icons/카카오맵.jpg';
-import 구글맵 from  './icons/구글맵.jpg';
-import 쿠팡 from  './icons/쿠팡.jpg';
-import 배달의민족 from  './icons/배달의민족.jpg';
-import 요기오 from  './icons/요기오.jpg';
-import 테이블링 from  './icons/테이블링.jpg';
-import catchtable from  './icons/catchtable.jpg';
-import 트립닷컴 from  './icons/트립닷컴.jpg';
-import 여기어때 from  './icons/여기어때.jpg';
-import 야놀자 from  './icons/야놀자.jpg';
-import 아고다 from  './icons/아고다.jpg';
-import 티빙 from  './icons/티빙.jpg';
-import 넷플릭스 from  './icons/넷플릭스.jpg';
-import 국민은행 from  './icons/국민은행.jpeg';
-import 우리은행 from  './icons/우리은행.jpeg';
-import 신한은행 from  './icons/신한은행.jpeg';
-import 농협은행 from  './icons/농협은행.jpeg';
-import 카카오페이 from  './icons/카카오페이.jpeg';
-import 네이버페이 from  './icons/네이버페이.jpeg';
-import 토스 from  './icons/토스.jpeg';
+const mcdonaldsLogo = './icons/mcdonalds.png';
+const br =  './icons/베스킨라빈스.jpg';
+const burgerking =  './icons/버거킹.jpg';
+const kfc =  './icons/kfc.jpg';
+const 샐러디 =  './icons/샐러디.jpeg';
+const cgv =  './icons/cgv.jpg';
+const 롯데시네마 =  './icons/롯데시네마.jpg';
+const 공차 =  './icons/공차.jpg';
+const 이디야 =  './icons/이디야.jpg';
+const 투썸 =  './icons/투썸.jpg';
+const 카카오택시 =  './icons/카카오택시.jpg';
+// const 쏘카 =  './icons/socar.jpg';
+const 버스타고 =  './icons/버스타고.jpg';
+const 네이버지도 =  './icons/네이버지도.jpg';
+const 카카오맵 =  './icons/카카오맵.jpg';
+const 구글맵 =  './icons/구글맵.jpg';
+const 쿠팡 =  './icons/쿠팡.jpg';
+const 배달의민족 =  './icons/배달의민족.jpg';
+const 요기오 =  './icons/요기오.jpg';
+const 테이블링 =  './icons/테이블링.jpg';
+const catchtable =  './icons/catchtable.jpg';
+const 트립닷컴 =  './icons/트립닷컴.jpg';
+const 여기어때 =  './icons/여기어때.jpg';
+// const 야놀자 =  './icons/야놀자.jpg';
+const 아고다 =  './icons/아고다.jpg';
+const 티빙 =  './icons/티빙.jpg';
+const 넷플릭스 =  './icons/넷플릭스.jpg';
+const 국민은행 =  './icons/국민은행.jpeg';
+const 우리은행 =  './icons/우리은행.jpeg';
+const 신한은행 =  './icons/신한은행.jpeg';
+const 농협은행 =  './icons/농협은행.jpeg';
+const 카카오페이 =  './icons/카카오페이.jpeg';
+const 네이버페이 =  './icons/네이버페이.jpeg';
+const 토스 =  './icons/토스.jpeg';
 
 class GuideItem {
     constructor(category, subcategory, name, level, image,view, like) {
@@ -72,6 +72,9 @@ class DataStorage {
     searchByCategory(category) {
         return this.data.filter(item => item.category === category);
       }
+    setMainItems(categories) {
+        return this.data.filter(item => categories.includes(item.name));
+    }
   }
   
 
@@ -93,7 +96,7 @@ const kc3 = new GuideItem("매장 키오스크", "카페", "투썸플레이스",
 
 //교통
 const tv1 = new GuideItem("교통", "차량", "카카오택시", 5,카카오택시,30000,1300);
-const tv2 = new GuideItem("교통", "차량", "쏘카", 5, 쏘카,30000,1300);
+// const tv2 = new GuideItem("교통", "차량", "쏘카", 5, 쏘카,30000,1300);
 const tv3 = new GuideItem("교통", "차량", "버스타고", 5,버스타고,30000,1300);
 
 const tm1 = new GuideItem("교통", "지도", "네이버지도", 5,네이버지도,30000,1300);
@@ -110,7 +113,7 @@ const ur1 = new GuideItem("유틸리티", "예약", "테이블링", 5,테이블�
 const ur2 = new GuideItem("유틸리티", "예약", "캐치테이블", 5,catchtable,30000,1300);
 const ur3 = new GuideItem("유틸리티", "예약", "트립닷컴", 5,트립닷컴,30000,1300);
 const ur4 = new GuideItem("유틸리티", "예약", "여기어때", 5,여기어때,30000,1300);
-const ur5 = new GuideItem("유틸리티", "예약", "야놀자", 5,야놀자,30000,1300);
+// const ur5 = new GuideItem("유틸리티", "예약", "야놀자", 5,야놀자,30000,1300);
 const ur6 = new GuideItem("유틸리티", "예약", "아고다", 5,아고다,30000,1300);
 
 const ue1 = new GuideItem("유틸리티", "엔터테인먼트", "티빙", 5,티빙,30000,1300);
@@ -149,7 +152,7 @@ storage.addData(kc3);
 
 //교통 데이터 추가
 storage.addData(tv1);
-storage.addData(tv2);
+// storage.addData(tv2);
 storage.addData(tv3);
 storage.addData(tm1);
 storage.addData(tm2);
@@ -163,7 +166,7 @@ storage.addData(ur1);
 storage.addData(ur2);
 storage.addData(ur3);
 storage.addData(ur4);
-storage.addData(ur5);
+// storage.addData(ur5);
 storage.addData(ur6);
 storage.addData(ue1);
 storage.addData(ue2);
@@ -181,14 +184,35 @@ storage.addData(fm7);
 // 모든 데이터 불러오기
 const allData = storage.getAllData();
 console.log("All data:", allData);
+
+//메인 데이터
+const mainItemsdata = ["맥도날드", "cgv", "카카오택시", "쿠팡", "국민은행"];
+const mainItems = storage.setMainItems(mainItemsdata);
+console.log("main items:", mainItems);
  
 
 //특정 카테고리 검색 -> 데이터 카테고리로 불러올 때 하면 좋을 듯
+const kioskItems = storage.searchByCategory("매장 키오스크");
+console.log("매장 키오스크:", kioskItems);
+const trafficItems = storage.searchByCategory("교통");
+console.log("교통:", trafficItems);
 const financeItems = storage.searchByCategory("금융");
 console.log("금융:", financeItems);
+const utilityItems = storage.searchByCategory("유틸리티");
+console.log("유틸리티:", utilityItems);
 
 // //검색 근데 이건 다 나오는 거
 const query = "맥도";
 const searchResult = storage.searchData(query);
 console.log("Search result for '" + query + "':", searchResult);
+
+module.exports={
+  allData: allData,
+  mainItems : mainItems,
+  kioskItems : kioskItems,
+  trafficItems : trafficItems,
+  financeItems : financeItems,
+  utilityItems : utilityItems,
+
+}
 
