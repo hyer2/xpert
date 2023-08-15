@@ -20,7 +20,7 @@ import Shop from "./shop";
 import Traffic from "./traffic";
 import Banking from "./banking";
 import Utility from "./utility";
-
+import imageVariables from './imagevariables';
 import Detail from "./detail";
 
 //import reportWebVitals from './reportWebVitals';
@@ -160,7 +160,7 @@ function Contents() {
               1
             </h1>
             <div class="w-[20%] justify-center items-center rounded-lg">
-              <img src={data.kf1} alt="" />
+            <img src={imageVariables[data.image]} alt={data.name} />
             </div>
 
             <div class="w-[70%] h-full">
