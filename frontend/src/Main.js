@@ -22,6 +22,8 @@ import Banking from "./banking";
 import Utility from "./utility";
 import imageVariables from "./imagevariables";
 import Detail from "./detail";
+import {Carousel} from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 //import reportWebVitals from './reportWebVitals';
 import {
@@ -51,31 +53,17 @@ function Init() {
 }
 
 function Slider() {
+  const images = [reviewImage1, reviewImage2, reviewImage1];
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [reviewImage1, reviewImage2, reviewImage1]; // 필요한 이미지 추가
 
-  const transitionDuration = 5000; // 이미지가 머무는 시간 (밀리초), 10초로 설정
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, transitionDuration * 2);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, []);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === images.length - 1 ? 0 : prevIndex + 1
-    );
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
   };
 
   return (
-    <div className="SliderWrapper max-w-full">
+    <div className="SliderWrapper">
       <div className="Comment w-100 h-96 relative pb-100 text-center mt-12">
-        <div className="titleText absolute left-10 top-0 inset-x-0 text-center">
+      <div className="titleText absolute left-10 top-0 inset-x-0 text-center">
           <span
             className="text-white right-2 bottom-1 bg-blue-900 rounded-lg bg-opacity-80 font-bold text-xl p-2"
             style={{
@@ -87,42 +75,47 @@ function Slider() {
             실제 이용 후기로 보는 Xpert
           </span>
         </div>
-        <div
-          id="default-carousel"
-          className="relative w-full"
-          data-carousel="slide"
-          style={{ position: "relative" }}
-        >
-          <div
-            className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen gap-20"
-            style={{
-              transform: `translateX(-${currentIndex * 100}%)`,
-              transition: `transform ${
-                currentIndex === 0 ? 0 : transitionDuration / 1000
-              }s ease`,
-            }}
+        <div className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl">
+        <div className="reviewImages w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl mt-20">
+          <Carousel
+            selectedItem={currentIndex}
+            interval={10000}
+            autoPlay
+            infiniteLoop
+            showArrows={false}
+            showThumbs={false}
+            showStatus={false}
+            swipeable
+            emulateTouch
+            stopOnHover={false}
+            transitionTime={1000}
+            swipeScrollTolerance={5}
+            swipeableProps={{ delta: 40 }}
           >
             {images.map((image, index) => (
-              <img
+              <div key={index}>
+                <img src={image} alt={`Review ${index + 1}`} />
+              </div>
+            ))}
+          </Carousel>
+          <div className="carouselButtons">
+            {images.map((_, index) => (
+              <button
                 key={index}
-                src={image}
-                className={`mx-auto object-contain h-full mt-20 ${
-                  index === currentIndex ? "opacity-100" : "opacity-0"
-                }`}
-                alt={`Review ${index + 1}`}
-                style={{
-                  transition: `opacity ${
-                    currentIndex === 0 ? 0 : transitionDuration / 1000
-                  }s ease`,
-                }}
+                className={`carouselButton ${currentIndex === index ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
               />
             ))}
+          </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
+
+
+
 
 function MainComp() {
   return (
