@@ -6,7 +6,7 @@ function Detail() {
       <div class="h-[100px]"></div>
 
       <div class=" flex justify-center items-center">
-        <div class="h-[1500px] w-[1200px] md:h-[1200px] md:w-[900px] rounded-3xl  shadow-xl p-10">
+        <div class="h-[1500px] w-[1200px] md:h-[1300px] md:w-[900px] rounded-3xl  shadow-xl p-10">
           <div class="h-[7%] flex justify-between items-center">
             <div class="flex items-center">
               <img src={mcImage} class="p-5 h-[100px] w-[160px]"></img>
@@ -138,11 +138,9 @@ function Detail() {
             </div>
 
             <div class="flex justify-center w-full m-10">
-              <video class="w-[80%]" controls>
-                <source src="https://youtu.be/yHI8zRBKmVY" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+  <iframe width="80%" height="400" src="https://www.youtube.com/embed/yHI8zRBKmVY" frameborder="0" allowfullscreen></iframe>
+</div>
+
           </div>
 
           <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
@@ -173,22 +171,22 @@ function Detail() {
 
             <div class="w-full h-full">
               <div
-                class="h-[70%] mx-auto rounded-lg flex justify-center"
+                class="h-485px mx-auto rounded-lg flex justify-center"
                 style={{ backgroundColor: "rgba(219, 234, 254, 0.3)" }}
               >
                 <div class="p-5">
-                  <p class="text-gray-500 whitespace-normal dark:text-gray-400">
+                  <p class="text-[15px] text-gray-500 whitespace-normal dark:text-gray-400">
                     1. 화면을 터치하고 [매장에서 식사] 또는 [테이크 아웃]을
-                    선택합니다. <br />
-                    2. 원하는 버거를 선택합니다. <br />
-                    원하는 구성을 선택합니다. <br />
+                    선택합니다. <br /><br/>
+                    2. 원하는 버거를 선택합니다. <br /><br/>
+                    3. 원하는 구성을 선택합니다. <br />
                     ex) 케이준 맥치킨 단품/ 케이준 맥치킨 세트/ 케이준
-                    맥치킨+라지세트 재료 추가/변경을 원하시는 분은 [재료
-                    추가/변경]을 터치합니다. <br />
-                    음료를 선택합니다. <br />
-                    주문을 확인하고 하단에 있는 [장바구니 추가]를 터치합니다.{" "}
-                    <br />
-                    [주문완료] 터치, [결재하기] 터치 후, 신용카드 결재하면 주문
+                    4. 맥치킨+라지세트 재료 추가/변경을 원하시는 분은 [재료
+                    추가/변경]을 터치합니다. <br /><br/>
+                    5. 음료를 선택합니다. <br /><br/>
+                    6.주문을 확인하고 하단에 있는 [장바구니 추가]를 터치합니다.{" "}
+                    <br /><br/>
+                    7. [주문완료] 터치, [결재하기] 터치 후, 신용카드 결재하면 주문
                     완료입니다. <br />
                   </p>
                 </div>

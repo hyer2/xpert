@@ -137,6 +137,12 @@ function MainComp() {
   );
 }
 function Contents() {
+  const [likeCount, setLikeCount] = useState(0);
+
+    const increaseLikes = () => {
+        setLikeCount(likeCount + 1);
+    };
+
   return (
     <div class="bg-white rounded-lg ">
       <div className="w-full h-auto lg:w-[1016px] lg:h-[139px] relative shadow flex items-center">
@@ -243,13 +249,13 @@ function Contents() {
             </div>
 
             <div class="flex items-center">
-              <div class="text-center text-stone-500 text-[15px] font-medium mr-2">
-                <img src={likeImage} />
-              </div>
+            <div className="text-center text-stone-500 text-[15px] font-medium mr-2">
+                <img src={likeImage} onClick={increaseLikes} style={{ cursor: 'pointer' }} alt="Like" />
+            </div>
 
-              <div class="text-center text-stone-500 text-[15px] font-medium mr-5">
-                1,130개
-              </div>
+            <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
+                {likeCount}개
+            </div>
 
               <div class="text-center text-stone-500 text-[15px] font-medium mr-2">
                 <img src={eyeImage} />
@@ -286,14 +292,21 @@ function HeaderComp() {
         className="mt-10"
         // bg-center bg-no-repeat bg-cover bg-blend-multiply
       >
-        <div class="h-[50px]"></div>
+        <div class="h-[20px]"></div>
         <div class="text-center px-3 lg:px-10 p-20">
           <h1 class="my-4 text-3xl md:text-4xl lg:text-6xl text-white font-extrabold leading-tight pb-5">
-            X-pert
+            Xpert
           </h1>
           <p class="leading-normal text-white opacity-80% text-base md:text-2xl lg:text-4xl mb-8 font-extrabold">
             Guide for X-Generation
           </p>
+          <p class="custom-paragraph text-white opacity-80% text-base md:text-[15px] lg:text-[15px] font-medium">
+    Xpert는 디지털 기기 조작을 어려워하는 중장년층분들을 위해 
+    디지털 기기 사용법을 알려주는 플랫폼, Xpert입니다.
+    <br />
+    Xpert는 매장 키오스크 사용법부터 교통앱, 모바일 뱅킹 앱, 유틸리티 앱과 같은 다양한 디지털 서비스 사용법을 쉽고 친절하게
+    안내합니다.
+    </p>
         </div>
       </section>
     </div>
@@ -481,163 +494,147 @@ function Rankings() {
 */
 function FooterComp() {
   return (
-    // bg-gradient-to-b from-blue-950 via-indigo-400 to-indigo-300
-    <footer
-      className="footer p-24 text-white"
-      style={{
-        marginTop: "250px",
+<footer class=" bg-white rounded-lg shadow dark:bg-gray-900 m-4" style={{ marginTop: "200px" ,
+background: `linear-gradient(
+  rgba(255, 255, 255, 1) 0%,
 
-        background: `linear-gradient(
-               rgba(255, 255, 255, 1) 0%,
-
-				rgba(255, 255, 255, 0) 100%
-        ), url(${bgImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
+rgba(255, 255, 255, 0) 100%
+), url(${bgImage})`,
+backgroundRepeat: "no-repeat",
+        backgroundSize: "100% auto",
         // backgroundImage: `url(${bgImage})`,
         // backgroundSize: "100% auto",
         width: "100%",
-        height: "450px",
-      }}
-    >
-      <div className="flex justify-center">
-        <div className="grid grid-cols-3 gap-20 lg:grid-cols-3">
-          <div className="mb-10">
-            <span className="footer-title text-2xl font-extrabold text-black">
-              About
-            </span>
-            <p className="context text-black  mt-5" style={{ lineHeight: "2" }}>
-              Xpert는 디지털 기기 조작을 어려워하는 중장년층분들을 위해 디지털
-              기기 사용법을 알려주는 플랫폼입니다.
-              <br />
-              Xpert는 매장 키오스크 사용법부터 교통앱, 모바일 뱅킹 앱, 유틸리티
-              서비스와 같은 다양한 디지털 서비스 사용법을 쉽고 친절하게
-              안내합니다.
-            </p>
-          </div>
-          <div className="mx-12 text-black">
-            <span className="footer-title text-2xl font-extrabold">Menu</span>
-            <div class="mt-5">
-              <a href="/restaurant" className="link link-hover block mt-2">
-                매장 키오스크 가이드
-              </a>
-              <a href="/transportation" className="link link-hover block mt-2">
-                교통앱 가이드
-              </a>
-              <a href="/mobilebanking" className="link link-hover block mt-2">
-                모바일뱅킹앱 가이드
-              </a>
-              <a href="/utility" className="link link-hover block mt-2">
-                유틸리티 서비스 가이드
-              </a>
-            </div>
-          </div>
-          <div className="mx-12 text-black">
-            <span className="footer-title text-2xl font-extrabold ">
-              Information
-            </span>
-            <div className="Phone h-6 relative mt-5 text-black">
+        height: "100%"}}>
+  <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+    <span className="flex justify-center text-white mt-20 footer-title text-2xl font-extrabold">Menu</span>
+    <ul class="mt-4 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+      <li>
+        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/restaurant">
+          매장 키오스크
+        </a>
+      </li>
+
+      <li>
+        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/transportation">
+          교통 앱
+        </a>
+      </li>
+
+      <li>
+        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/transportation">
+          모바일뱅킹 앱
+        </a>
+      </li>
+
+      <li>
+        <a class="font-bold text-sm text-white transition link link-hover block mt-2" href="/transportation">
+          유틸리티 앱
+        </a>
+      </li>
+      </ul>
+      <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
+      <span className="flex justify-center text-white mt-8  footer-title text-2xl font-extrabold">Contact Us</span>
+      <div className="flex justify-center text-white mt-4 footer-title text-sm font-bold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 25 23.5"
                 width="17"
                 height="17"
-                style={{ transform: "translateY(10px)" }}
+                style={{ transform: "translateY(0px)" }}
               >
                 <path
                   d="M24.537 17.0082L19.0682 14.8015C18.8346 14.7078 18.5749 14.688 18.3283 14.7452C18.0818 14.8024 17.8616 14.9335 17.701 15.1187L15.2791 17.9047C11.4781 16.2174 8.41919 13.3374 6.62706 9.75868L9.5861 7.47841C9.78321 7.32747 9.92272 7.12017 9.98352 6.8879C10.0443 6.65564 10.0231 6.41104 9.92302 6.19115L7.57923 1.04214C7.46942 0.80511 7.2752 0.611579 7.03007 0.494923C6.78494 0.378267 6.50426 0.345798 6.23643 0.403115L1.15822 1.50647C0.899996 1.56262 0.669609 1.69951 0.50466 1.8948C0.339711 2.0901 0.249941 2.33227 0.25 2.58179C0.25 14.3739 10.4015 23.9134 22.9066 23.9134C23.1717 23.9136 23.4291 23.8291 23.6366 23.6738C23.8441 23.5185 23.9896 23.3015 24.0492 23.0583L25.2211 18.2771C25.2816 18.0237 25.2464 17.7584 25.1215 17.5268C24.9967 17.2952 24.79 17.1118 24.537 17.0082Z"
                   fill="white"
                 />
               </svg>
-              <div className="phonenum left-[30px] top-0 mt-2 absolute text-black font-semibold">
-                02-1234-1234
+              <div className="phonenum ml-2 relative text-white font-semibold">
+                  02-1234-1234
               </div>
             </div>
-            <div className="Phone h-6 relative">
+            <div className="flex justify-center mt-4 text-white footer-title text-sm font-bold">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 40 32"
                 width="20"
                 height="16"
-                style={{ transform: "translateY(20px)" }}
+                 
               >
                 <path
                   d="M35.5938 0.913452H3.90625C1.88693 0.913452 0.25 2.64832 0.25 4.78845V28.0385C0.25 30.1786 1.88693 31.9135 3.90625 31.9135H35.5938C37.6131 31.9135 39.25 30.1786 39.25 28.0385V4.78845C39.25 2.64832 37.6131 0.913452 35.5938 0.913452ZM35.5938 4.78845V8.0826C33.8858 9.55664 31.163 11.8487 25.342 16.6795C24.0592 17.7489 21.5181 20.3181 19.75 20.2881C17.9822 20.3184 15.4403 17.7485 14.158 16.6795C8.33793 11.8494 5.6144 9.55688 3.90625 8.0826V4.78845H35.5938ZM3.90625 28.0385V13.055C5.65165 14.5283 8.12686 16.5959 11.8996 19.7269C13.5645 21.1158 16.4801 24.182 19.75 24.1634C23.0038 24.182 25.8825 21.1603 27.5997 19.7275C31.3724 16.5966 33.8483 14.5285 35.5938 13.055V28.0385H3.90625Z"
                   fill="white"
                 />
               </svg>
-              <div className="phonenum left-[30px] top-0 mt-4 absolute text-black font-semibold">
+              <div className="phonenum ml-2 relative text-white font-semibold">
                 xpert@gmail.com
               </div>
             </div>
-            <ul className="icon-list" style={{ display: "flex" }}>
-              <li>
-                <a href="https://www.instagram.com/">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="56"
-                    viewBox="0 0 58 56"
-                    style={{ transform: "translate(-5px,25px)" }}
-                  >
-                    <ellipse
-                      cx="28.75"
-                      cy="27.7047"
-                      rx="28.5"
-                      ry="27.5"
-                      fill="#A7A7A7"
-                      fill-opacity="0.3"
-                    />
-                    <path
-                      d="M28.7541 17.9748C23.5044 17.9748 19.2699 22.0957 19.2699 27.2047C19.2699 32.3137 23.5044 36.4347 28.7541 36.4347C34.0039 36.4347 38.2383 32.3137 38.2383 27.2047C38.2383 22.0957 34.0039 17.9748 28.7541 17.9748ZM28.7541 33.2054C25.3616 33.2054 22.5881 30.5143 22.5881 27.2047C22.5881 23.8951 25.3533 21.204 28.7541 21.204C32.1549 21.204 34.9201 23.8951 34.9201 27.2047C34.9201 30.5143 32.1467 33.2054 28.7541 33.2054ZM40.8385 17.5972C40.8385 18.7941 39.8479 19.7501 38.6263 19.7501C37.3964 19.7501 36.4141 18.7861 36.4141 17.5972C36.4141 16.4083 37.4047 15.4444 38.6263 15.4444C39.8479 15.4444 40.8385 16.4083 40.8385 17.5972ZM47.12 19.7822C46.9797 16.8983 46.3028 14.3438 44.1319 12.2392C41.9693 10.1345 39.3444 9.47583 36.3811 9.33123C33.327 9.16254 24.173 9.16254 21.1189 9.33123C18.1638 9.46779 15.539 10.1265 13.3681 12.2312C11.1972 14.3358 10.5286 16.8903 10.38 19.7742C10.2067 22.7464 10.2067 31.655 10.38 34.6272C10.5203 37.5111 11.1972 40.0656 13.3681 42.1702C15.539 44.2749 18.1556 44.9336 21.1189 45.0782C24.173 45.2469 33.327 45.2469 36.3811 45.0782C39.3444 44.9416 41.9693 44.2829 44.1319 42.1702C46.2946 40.0656 46.9714 37.5111 47.12 34.6272C47.2933 31.655 47.2933 22.7544 47.12 19.7822ZM43.1744 37.8163C42.5306 39.3908 41.2842 40.6038 39.6581 41.2384C37.2231 42.1783 31.445 41.9614 28.7541 41.9614C26.0632 41.9614 20.2769 42.1702 17.8502 41.2384C16.2323 40.6118 14.9859 39.3988 14.3338 37.8163C13.3681 35.4466 13.5909 29.8235 13.5909 27.2047C13.5909 24.5859 13.3763 18.9548 14.3338 16.5931C14.9777 15.0186 16.2241 13.8056 17.8502 13.171C20.2852 12.2312 26.0632 12.448 28.7541 12.448C31.445 12.448 37.2313 12.2392 39.6581 13.171C41.2759 13.7976 42.5223 15.0106 43.1744 16.5931C44.1402 18.9628 43.9173 24.5859 43.9173 27.2047C43.9173 29.8235 44.1402 35.4546 43.1744 37.8163Z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.youtube.com/">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="32"
-                    height="56"
-                    viewBox="0 0 58 56"
-                    style={{ transform: "translateY(25px)" }}
-                  >
-                    <ellipse
-                      cx="28.75"
-                      cy="27.7047"
-                      rx="28.5"
-                      ry="27.5"
-                      fill="#A7A7A7"
-                      fill-opacity="0.3"
-                    />
-                    <path
-                      d="M48.3933 17.0552C47.9217 15.1459 46.5324 13.6423 44.7684 13.132C41.5711 12.2047 28.75 12.2047 28.75 12.2047C28.75 12.2047 15.929 12.2047 12.7316 13.132C10.9676 13.6423 9.57827 15.1459 9.10673 17.0552C8.25 20.5158 8.25 27.736 8.25 27.736C8.25 27.736 8.25 34.9563 9.10673 38.4169C9.57827 40.3262 10.9676 41.7672 12.7316 42.2775C15.929 43.2047 28.75 43.2047 28.75 43.2047C28.75 43.2047 41.571 43.2047 44.7684 42.2775C46.5324 41.7672 47.9217 40.3262 48.3933 38.4169C49.25 34.9563 49.25 27.736 49.25 27.736C49.25 27.736 49.25 20.5158 48.3933 17.0552ZM24.5568 34.2915V21.1806L35.2727 27.7362L24.5568 34.2915Z"
-                      fill="white"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li>
+    <ul class="mt-8 mb-8 flex justify-center gap-6 md:gap-8">
+      <li>
+        <a
+          href="/"
+          rel="noreferrer"
+          target="_blank"
+          class="text-white"
+        >
+          
+          <span class="sr-only">Facebook</span>
+          <svg
+            class="h-6 w-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+      </li>
+
+      <li>
+        <a
+          href="/"
+          rel="noreferrer"
+          target="_blank"
+          class="text-white"
+        >
+          <span class="sr-only">Instagram</span>
+          <svg
+            class="h-6 w-6"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </a>
+      </li>
+      <li>
                 <a href="https://www.youtube.com/">
                   <img
                     src={blogImage}
                     alt="blog"
-                    width="32"
-                    height="56"
+                    width="30"
+                    height="50"
                     viewBox="0 0 58 56"
-                    style={{ transform: "translate(5px,35px)" }}
+                    style={{ transform: "translateY(-2px)" }}
                   />
                 </a>
               </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-}
+    </ul>
+    </div>
+  </div>
+</footer>
+  )
+};
+ 
 
 /*function FooterComp() {
   return (

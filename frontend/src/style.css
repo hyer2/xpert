@@ -364,3 +364,8 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+
+.custom-paragraph {
+        line-height: 30px;
+}
