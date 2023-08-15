@@ -20,7 +20,7 @@ import Shop from "./shop";
 import Traffic from "./traffic";
 import Banking from "./banking";
 import Utility from "./utility";
-import imageVariables from './imagevariables';
+import imageVariables from "./imagevariables";
 import Detail from "./detail";
 
 //import reportWebVitals from './reportWebVitals';
@@ -160,7 +160,7 @@ function Contents() {
               1
             </h1>
             <div class="w-[20%] justify-center items-center rounded-lg">
-            <img src={imageVariables[data.image]} alt={data.name} />
+              <img src={imageVariables[data.image]} alt={data.name} />
             </div>
 
             <div class="w-[70%] h-full">
@@ -333,6 +333,11 @@ function HeaderComp() {
 }
 
 function Nav() {
+  const [isShowNav, setNavOpen] = useState(false);
+
+  const showNav = () => {
+    setNavOpen(!isShowNav);
+  };
   return (
     <div>
       <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600">
@@ -347,6 +352,7 @@ function Nav() {
               className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-sticky"
               aria-expanded="false"
+              onClick={showNav}
             >
               <span className="sr-only">Open main menu</span>
               <svg
@@ -416,6 +422,50 @@ function Nav() {
           </div>
         </div>
       </nav>
+      {isShowNav && (
+        <div
+          id="NAV"
+          className="fixed right-[0] top-[65px] bg-white divide-y divide-gray-100 shadow w-44 md:hidden"
+        >
+          <ul
+            className="py-2 text-sm text-gray-700 dark:text-gray-200"
+            aria-labelledby="NAV-button"
+          >
+            <li>
+              <button
+                type="button"
+                className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                <a href="/shop">매장 키오스크</a>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                <a href="/traffic">교통 앱</a>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                <a href="/banking">모바일뱅킹 앱</a>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                <a href="/utility">유틸리티 앱</a>
+              </button>
+            </li>
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
