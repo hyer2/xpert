@@ -82,36 +82,36 @@ function GuideSearch() {
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("음식점")}
+                  onClick={() => handleDropdownItemClick("쇼핑")}
                 >
-                  음식점
+                  쇼핑
                 </button>
               </li>
               <li>
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("카페·디저트")}
+                  onClick={() => handleDropdownItemClick("배달")}
                 >
-                  카페·디저트
+                  배달
                 </button>
               </li>
               <li>
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("영화관")}
+                  onClick={() => handleDropdownItemClick("예약")}
                 >
-                  영화관
+                  예약
                 </button>
               </li>
               <li>
                 <button
                   type="button"
                   className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("주차시스템")}
+                  onClick={() => handleDropdownItemClick("엔터테인먼트")}
                 >
-                  주차시스템
+                  엔터테인먼트
                 </button>
               </li>
             </ul>
@@ -147,31 +147,31 @@ function Button() {
           type="button"
           class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
         >
-          맥도날드
+          쿠팡
         </button>
         <button
           type="button"
           class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
         >
-          베스킨라빈스
+          배달의 민족
         </button>
         <button
           type="button"
           class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
         >
-          공차
+          여기어때
         </button>
         <button
           type="button"
           class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-3 text-center mb-2 w-32"
         >
-          버거킹
+          티빙
         </button>
         <button
           type="button"
           class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
         >
-          서브웨이
+          넷플릭스
         </button>
       </div>
     </div>
@@ -414,7 +414,7 @@ function Pagination() {
     </div>
   );
 }
-function Guide() {
+function Utility() {
   return (
     <div class="w-full h-full">
       <div class="items-center justify-center">
@@ -429,4 +429,4 @@ function Guide() {
     </div>
   );
 }
-export default Guide;
+export default Utility;

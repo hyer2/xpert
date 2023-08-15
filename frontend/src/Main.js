@@ -16,7 +16,11 @@ import reviewImage1 from "./img/usercomment1.png";
 import reviewImage2 from "./img/usercomment2.png";
 import blogImage from "./img/blog.png";
 import bgImage from "./icons/sub-bg.jpg";
-import Guide from "./guide.js";
+import Shop from "./shop";
+import Traffic from "./traffic";
+import Banking from "./banking";
+import Utility from "./utility";
+
 import Detail from "./detail";
 
 //import reportWebVitals from './reportWebVitals';
@@ -700,8 +704,11 @@ function Main() {
       <Router>
         <Routes>
           <Route path="/" element={<Init />} />
-          <Route path="/guide" element={<Guide />} />
+          <Route path="/shop" element={<Shop />} />
           <Route path="/detail" element={<Detail />} />
+          <Route path="/traffic" element={<Traffic />} />
+          <Route path="/banking" element={<Banking />} />
+          <Route path="/utility" element={<Utility />} />
         </Routes>
       </Router>
       <FooterComp />
