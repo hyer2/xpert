@@ -1,5 +1,8 @@
+import React, { useState } from "react";
 import mcImage from "./icons/mcdonalds.png";
 import imageVariables from "./imagevariables";
+import likeImage from "./icons/like.png";
+import eyeImage from "./icons/eye.png";
 
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -21,6 +24,20 @@ const image = getParameterByName("image");
 
 
 function Detail() {
+  const [likeCount, setLikeCount] = useState(0);
+  const [watchCount, setWatchCount] = useState(0);
+  const [isLikeImageHovered, setIsLikeImageHovered] = useState(false);
+  const [isEyeImageHovered, setIsEyeImageHovered] = useState(false);
+
+
+  const increaseLikes = () => {
+    setLikeCount(likeCount + 1);
+  };
+
+  const increasewatch = () => {
+    setWatchCount(watchCount + 1);
+  
+  };
   return (
     <div>
       <div class="h-[100px]"></div>
@@ -212,6 +229,59 @@ function Detail() {
                 </div>
               </div>
             </div>
+            <div class="w-full h-full">
+            <div class="flex justify-start mt-8">
+                  <div
+      className="text-center text-stone-500 text-[15px] font-medium mr-2"
+      onClick={increaseLikes} 
+      onMouseEnter={() => setIsLikeImageHovered(true)}
+      onMouseLeave={() => setIsLikeImageHovered(false)}
+      style={{ cursor: "pointer" }}
+      
+    >
+      <img
+        src={likeImage}
+        alt="Like"
+        style={{
+          verticalAlign: "middle",
+          marginTop: "2px", // Adjust this value as needed
+        }}
+        />
+    </div>
+
+    <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
+      <span
+        style={{ textDecoration: isLikeImageHovered ? "underline" : "none" }}
+        onClick={increaseLikes}
+      >
+        {likeCount}개
+      </span>
+    </div>
+    <div
+        className="text-center text-stone-500 text-[15px] font-medium mr-2"
+        onClick={increasewatch}
+        onMouseEnter={() => setIsEyeImageHovered(true)}
+        onMouseLeave={() => setIsEyeImageHovered(false)}
+        style={{ cursor: "pointer", textDecoration: isEyeImageHovered ? "underline" : "none" }}
+      >
+        <img src={eyeImage} 
+        alt="Watch" 
+        style={{
+          verticalAlign: "middle",
+          marginTop: "3px", // Adjust this value as needed
+        }} />
+      </div>
+
+      <div className="text-center text-stone-500 text-[15px] font-medium">
+        <span
+          style={{ textDecoration: isEyeImageHovered ? "underline" : "none" }}
+          onClick={increasewatch}
+        >
+          {watchCount}회
+        </span>
+      </div>
+                </div>
+                </div>
             <button
               type="button"
               class="text-white bg-blue-900 hover:bg-white hover:text-blue-900 font-bold focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 hover:border border-blue-900"
