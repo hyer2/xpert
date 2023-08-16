@@ -1,4 +1,24 @@
 import mcImage from "./icons/mcdonalds.png";
+import imageVariables from "./imagevariables";
+
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  const regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)");
+  const results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+// URL에서 데이터 가져오기
+const category = getParameterByName("category");
+const name = getParameterByName("name");
+const subcategory = getParameterByName("subcategory");
+const image = getParameterByName("image");
+
+// 데이터 출력
+
 
 function Detail() {
   return (
@@ -9,8 +29,8 @@ function Detail() {
         <div class="h-[1500px] w-[1200px] md:h-[1300px] md:w-[900px] rounded-3xl  shadow-xl p-10">
           <div class="h-[7%] flex justify-between items-center">
             <div class="flex items-center">
-              <img src={mcImage} class="p-5 h-[100px] w-[160px]"></img>
-              <h2 class="font-bold text-black text-2xl">맥도날드</h2>
+              <img src={imageVariables[image]} class="p-5 h-[100px] w-[160px]"></img>
+              <h2 class="font-bold text-black text-2xl">{name}</h2>
               <span class="inline-flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -27,13 +47,13 @@ function Detail() {
                   />
                 </svg>
 
-                <p class="whitespace-nowrap text-sm">패스트푸드</p>
+                <p class="whitespace-nowrap text-sm">{subcategory}</p>
               </span>
             </div>
 
             <div class="flex items-center">
               <p class="mr-2 text-sm font-medium text-black dark:text-gray-400">
-                사용난이도
+               사용난이도
               </p>
               <svg
                 class="w-4 h-4 text-yellow-300 mr-1"
