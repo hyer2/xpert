@@ -37,10 +37,6 @@ import {
 const dataModule = require("./data");
 const allData = dataModule.allData;
 const mainItems = dataModule.mainItems;
-const kioskItems = dataModule.kioskItems;
-const trafficItems = dataModule.trafficItems;
-const financeItems = dataModule.financeItems;
-const utilityItems = dataModule.utilityItems;
 
 function Init() {
   return (
