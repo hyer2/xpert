@@ -33,6 +33,15 @@ function GuideSearch() {
     const value = e.target.getAttribute("data-value");
     setInputValue(value);
   };
+  //Input
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // 검색어 사용 또는 상태 업데이트 등의 작업 수행
+  };
 
   return (
     <div class="items-center justify-center">
@@ -134,23 +143,24 @@ function GuideSearch() {
             )}
           </div>
           <div className="relative w-full">
-            <form>
-              <input
-                type="search"
-                id="search-dropdown"
-                className="text-[15px] p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
-                placeholder="검색어를 입력하세요."
-                required
-                value={inputValue}
-              />
-              <button
-                type="submit"
-                className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                검색
-              </button>
-            </form>
-          </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="search"
+          id="search-dropdown"
+          className="text-[15px] p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
+          placeholder="검색어를 입력하세요."
+          required
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <button
+          type="submit"
+          className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          검색
+        </button>
+      </form>
+    </div>
         </div>
       </div>
       <div>
