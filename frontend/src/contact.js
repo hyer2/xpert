@@ -317,13 +317,13 @@ const isButtonDisabled = !title || !content || !email ;
       <div className="SliderWrapper">
         <div className="Comment w-100 h-96 relative pb-100 text-center mt-24">
           <div className="titleText absolute left-10 top-0 inset-x-0 text-center">
-            <span
-              className="text-white right-2 bottom-1 bg-blue-900 rounded-lg bg-opacity-80 font-bold text-xl p-2"
-              style={{
-                paddingLeft: "20px",
-                paddingRight: "20px",
-                borderRadius: "50px",
-              }}
+          <span
+            className="text-white right-2 bottom-1 bg-blue-500 rounded-lg bg-opacity-80 font-bold text-xl p-2"
+            style={{
+              paddingLeft: "20px",
+              paddingRight: "20px",
+              borderRadius: "10px",
+            }}
             >
               실제 이용 후기로 보는 Xpert
             </span>
