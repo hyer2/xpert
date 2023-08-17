@@ -22,13 +22,11 @@ const image = getParameterByName("image");
 
 // 데이터 출력
 
-
 function Detail() {
   const [likeCount, setLikeCount] = useState(0);
   const [watchCount, setWatchCount] = useState(0);
   const [isLikeImageHovered, setIsLikeImageHovered] = useState(false);
   const [isEyeImageHovered, setIsEyeImageHovered] = useState(false);
-
 
   const increaseLikes = () => {
     setLikeCount(likeCount + 1);
@@ -36,17 +34,31 @@ function Detail() {
 
   const increasewatch = () => {
     setWatchCount(watchCount + 1);
-  
   };
+
+  let categoryLink;
+
+  if (category == "매장 키오스크") {
+    categoryLink = "/shop";
+  } else if (category == "교통") {
+    categoryLink = "/traffic";
+  } else if (category == "금융") {
+    categoryLink = "/banking";
+  } else if (category == "유틸리티") {
+    categoryLink = "/utility";
+  }
+
   return (
     <div>
       <div class="h-[100px]"></div>
-
       <div class=" flex justify-center items-center">
         <div class="h-[1500px] w-[1200px] md:h-[1300px] md:w-[900px] rounded-3xl  shadow-xl p-10">
           <div class="h-[7%] flex justify-between items-center">
-            <div class="flex items-center">
-              <img src={imageVariables[image]} class="p-5 h-[100px] w-[160px]"></img>
+            <div class="flex items-center ">
+              <img
+                src={imageVariables[image]}
+                class="p-5 h-[100px] w-[160px] rounded-lg"
+              ></img>
               <h2 class="font-bold text-black text-2xl">{name}</h2>
               <span class="inline-flex items-center justify-center rounded-full bg-purple-100 px-2.5 py-0.5 text-purple-700 ml-5">
                 <svg
@@ -69,8 +81,8 @@ function Detail() {
             </div>
 
             <div class="flex items-center">
-              <p class="mr-2 text-sm font-medium text-black dark:text-gray-400">
-               사용난이도
+              <p class="mr-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+                사용난이도
               </p>
               <svg
                 class="w-4 h-4 text-yellow-300 mr-1"
@@ -175,9 +187,14 @@ function Detail() {
             </div>
 
             <div class="flex justify-center w-full m-10">
-  <iframe width="80%" height="400" src="https://www.youtube.com/embed/yHI8zRBKmVY" frameborder="0" allowfullscreen></iframe>
-</div>
-
+              <iframe
+                width="80%"
+                height="400"
+                src="https://www.youtube.com/embed/yHI8zRBKmVY"
+                frameborder="0"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
 
           <hr class="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-700" />
@@ -214,80 +231,95 @@ function Detail() {
                 <div class="p-5">
                   <p class="text-[15px] text-gray-500 whitespace-normal dark:text-gray-400">
                     1. 화면을 터치하고 [매장에서 식사] 또는 [테이크 아웃]을
-                    선택합니다. <br /><br/>
-                    2. 원하는 버거를 선택합니다. <br /><br/>
+                    선택합니다. <br />
+                    <br />
+                    2. 원하는 버거를 선택합니다. <br />
+                    <br />
                     3. 원하는 구성을 선택합니다. <br />
-                    ex) 케이준 맥치킨 단품/ 케이준 맥치킨 세트/ 케이준
-                    4. 맥치킨+라지세트 재료 추가/변경을 원하시는 분은 [재료
-                    추가/변경]을 터치합니다. <br /><br/>
-                    5. 음료를 선택합니다. <br /><br/>
+                    ex) 케이준 맥치킨 단품/ 케이준 맥치킨 세트/ 케이준 4.
+                    맥치킨+라지세트 재료 추가/변경을 원하시는 분은 [재료
+                    추가/변경]을 터치합니다. <br />
+                    <br />
+                    5. 음료를 선택합니다. <br />
+                    <br />
                     6.주문을 확인하고 하단에 있는 [장바구니 추가]를 터치합니다.{" "}
-                    <br /><br/>
-                    7. [주문완료] 터치, [결재하기] 터치 후, 신용카드 결재하면 주문
-                    완료입니다. <br />
+                    <br />
+                    <br />
+                    7. [주문완료] 터치, [결재하기] 터치 후, 신용카드 결재하면
+                    주문 완료입니다. <br />
                   </p>
                 </div>
               </div>
             </div>
             <div class="w-full h-full">
-            <div class="flex justify-start mt-8">
-                  <div
-      className="text-center text-stone-500 text-[15px] font-medium mr-2"
-      onClick={increaseLikes} 
-      onMouseEnter={() => setIsLikeImageHovered(true)}
-      onMouseLeave={() => setIsLikeImageHovered(false)}
-      style={{ cursor: "pointer" }}
-      
-    >
-      <img
-        src={likeImage}
-        alt="Like"
-        style={{
-          verticalAlign: "middle",
-          marginTop: "2px", // Adjust this value as needed
-        }}
-        />
-    </div>
-
-    <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
-      <span
-        style={{ textDecoration: isLikeImageHovered ? "underline" : "none" }}
-        onClick={increaseLikes}
-      >
-        {likeCount}개
-      </span>
-    </div>
-    <div
-        className="text-center text-stone-500 text-[15px] font-medium mr-2"
-        onClick={increasewatch}
-        onMouseEnter={() => setIsEyeImageHovered(true)}
-        onMouseLeave={() => setIsEyeImageHovered(false)}
-        style={{ cursor: "pointer", textDecoration: isEyeImageHovered ? "underline" : "none" }}
-      >
-        <img src={eyeImage} 
-        alt="Watch" 
-        style={{
-          verticalAlign: "middle",
-          marginTop: "3px", // Adjust this value as needed
-        }} />
-      </div>
-
-      <div className="text-center text-stone-500 text-[15px] font-medium">
-        <span
-          style={{ textDecoration: isEyeImageHovered ? "underline" : "none" }}
-          onClick={increasewatch}
-        >
-          {watchCount}회
-        </span>
-      </div>
+              <div class="flex justify-start mt-8">
+                <div
+                  className="text-center text-stone-500 text-[15px] font-medium mr-2"
+                  onClick={increaseLikes}
+                  onMouseEnter={() => setIsLikeImageHovered(true)}
+                  onMouseLeave={() => setIsLikeImageHovered(false)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    src={likeImage}
+                    alt="Like"
+                    style={{
+                      verticalAlign: "middle",
+                      marginTop: "2px", // Adjust this value as needed
+                    }}
+                  />
                 </div>
+
+                <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
+                  <span
+                    style={{
+                      textDecoration: isLikeImageHovered ? "underline" : "none",
+                    }}
+                    onClick={increaseLikes}
+                  >
+                    {likeCount}개
+                  </span>
                 </div>
-            <button
-              type="button"
-              class="text-white bg-blue-900 hover:bg-white hover:text-blue-900 font-bold focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 hover:border border-blue-900"
-            >
-              <a href="guide">Back</a>
-            </button>
+                <div
+                  className="text-center text-stone-500 text-[15px] font-medium mr-2"
+                  onClick={increasewatch}
+                  onMouseEnter={() => setIsEyeImageHovered(true)}
+                  onMouseLeave={() => setIsEyeImageHovered(false)}
+                  style={{
+                    cursor: "pointer",
+                    textDecoration: isEyeImageHovered ? "underline" : "none",
+                  }}
+                >
+                  <img
+                    src={eyeImage}
+                    alt="Watch"
+                    style={{
+                      verticalAlign: "middle",
+                      marginTop: "3px", // Adjust this value as needed
+                    }}
+                  />
+                </div>
+
+                <div className="text-center text-stone-500 text-[15px] font-medium">
+                  <span
+                    style={{
+                      textDecoration: isEyeImageHovered ? "underline" : "none",
+                    }}
+                    onClick={increasewatch}
+                  >
+                    {watchCount}회
+                  </span>
+                </div>
+              </div>
+            </div>
+            <a href={categoryLink}>
+              <button
+                type="button"
+                class="text-white bg-blue-900 hover:bg-white hover:text-blue-900 font-bold focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-7 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 hover:border border-blue-900"
+              >
+                Back
+              </button>
+            </a>
           </div>
         </div>
       </div>

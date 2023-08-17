@@ -217,7 +217,7 @@ function Contents() {
                 <div class="flex items-center">
                   <button class="m-3 lg:m-0 w-full h-full bg-blue-300 rounded-lg hover:bg-blue-700">
                     <a
-                      href={`/detail?&name=${data.name}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
+                      href={`/detail?&name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
                     >
                       <div class="items-center justify-center">
                         <img src={infoImage} alt="Info Icon" />
