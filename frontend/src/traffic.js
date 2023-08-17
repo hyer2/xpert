@@ -144,23 +144,23 @@ function GuideSearch() {
             )}
           </div>
           <div className="relative w-full">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="search"
-          id="search-dropdown"
-          className="text-[15px] p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
-          placeholder="검색어를 입력하세요."
-          required
-          value={inputValue}
-          onChange={handleInputChange}
-        />
-        <button
-          type="submit"
-          className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          검색
-        </button>
-      </form>
+            <form onSubmit={handleSubmit}>
+              <input
+                type="search"
+                id="search-dropdown"
+                className="text-[15px] p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
+                placeholder="검색어를 입력하세요."
+                required
+                value={inputValue}
+                onChange={handleInputChange}
+              />
+              <button
+                type="submit"
+                className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                검색
+              </button>
+            </form>
           </div>
         </div>
       </div>
@@ -240,122 +240,122 @@ function GuideHeader() {
 
 function Card() {
   return (
-    <div>
-      {trafficItems.map((data,index)=>(
-         <div key={index}>
-         <div class="sw-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-           <div class="flex justify-center p-5">
-           <img src={imageVariables[data.image]} alt={data.name} />
-           </div>
-   
-           <div class="px-5 pb-5">
-             <a href="#">
-               <h5 class="text-lg lg:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-5 lg:mb-0">
-               {data.name}
-               </h5>
-             </a>
-             <div class="flex items-center mt-2.5 mb-5 hidden lg:flex ">
-               <svg
-                 class="w-4 h-4 text-yellow-300 mr-1"
-                 aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="currentColor"
-                 viewBox="0 0 22 20"
-               >
-                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-               </svg>
-               <svg
-                 class="w-4 h-4 text-yellow-300 mr-1"
-                 aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="currentColor"
-                 viewBox="0 0 22 20"
-               >
-                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-               </svg>
-               <svg
-                 class="w-4 h-4 text-yellow-300 mr-1"
-                 aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="currentColor"
-                 viewBox="0 0 22 20"
-               >
-                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-               </svg>
-               <svg
-                 class="w-4 h-4 text-yellow-300 mr-1"
-                 aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="currentColor"
-                 viewBox="0 0 22 20"
-               >
-                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-               </svg>
-               <svg
-                 class="w-4 h-4 text-gray-200 dark:text-gray-600"
-                 aria-hidden="true"
-                 xmlns="http://www.w3.org/2000/svg"
-                 fill="currentColor"
-                 viewBox="0 0 22 20"
-               >
-                 <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-               </svg>
-               <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-               {data.level}
-               </span>
-             </div>
-             <div class="flex items-center justify-between">
-               <div class="text-center text-stone-500 font-medium hidden xl:flex">
-                 <img src={likeImage} />
-               </div>
-   
-               <div class="text-center text-stone-500 font-medium hidden xl:flex">
-                 1,130개
-               </div>
-   
-               <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
-                 <img src={eyeImage} />
-               </div>
-   
-               <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
-               {data.view}
-               </div>
-               <a
-                 href={`/detail?name=${data.name}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
-                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-               >
-                 more
-               </a>
-             </div>
-           </div>
-         </div>
-       </div>
-
-
-      ))}
-
-    </div>
-   
-  );
-}
-function Cards() {
-  return (
     <div class="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
-      <Card />
-      {/* <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card /> */}
+      {trafficItems.map((data, index) => (
+        <div key={index}>
+          <div class="sw-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="flex justify-center p-5">
+              <img
+                src={imageVariables[data.image]}
+                alt={data.name}
+                class="h-[100px] lg:h-[150px] rounded-lg"
+              />
+            </div>
+
+            <div class="px-5 pb-5">
+              <a href="#">
+                <h5 class="text-lg lg:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-5 lg:mb-0 line-clamp-1">
+                  {data.name}
+                </h5>
+              </a>
+              <div class="flex items-center mt-2.5 mb-5 hidden lg:flex ">
+                <svg
+                  class="w-4 h-4 text-yellow-300 mr-1"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 22 20"
+                >
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg
+                  class="w-4 h-4 text-yellow-300 mr-1"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 22 20"
+                >
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg
+                  class="w-4 h-4 text-yellow-300 mr-1"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 22 20"
+                >
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg
+                  class="w-4 h-4 text-yellow-300 mr-1"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 22 20"
+                >
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <svg
+                  class="w-4 h-4 text-gray-200 dark:text-gray-600"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 22 20"
+                >
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                </svg>
+                <span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                  {data.level}
+                </span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="text-center text-stone-500 font-medium hidden xl:flex">
+                  <img src={likeImage} />
+                </div>
+
+                <div class="text-center text-stone-500 font-medium hidden xl:flex">
+                  1,130개
+                </div>
+
+                <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
+                  <img src={eyeImage} />
+                </div>
+
+                <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
+                  {data.view}
+                </div>
+                <a
+                  href={`/detail?name=${data.name}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
+                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
+                  more
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   );
 }
+// function Cards() {
+//   return (
+//     <div class="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
+//       <Card />
+//       {/* <Card />
+//       <Card />
+//       <Card />
+//       <Card />
+//       <Card />
+//       <Card />
+//       <Card />
+//       <Card />
+//       <Card />
+//       <Card />
+//       <Card /> */}
+//     </div>
+//   );
+// }
 
 function Pagination() {
   return (
@@ -388,7 +388,8 @@ function Pagination() {
           <li>
             <a
               href="#"
-              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              aria-current="page"
+              class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
             >
               1
             </a>
@@ -404,8 +405,7 @@ function Pagination() {
           <li>
             <a
               href="#"
-              aria-current="page"
-              class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
             >
               3
             </a>
@@ -461,7 +461,7 @@ function Traffic() {
         <GuideHeader />
       </div>
       <div>
-        <Cards />
+        <Card />
       </div>
       <div class="flex items-center justify-center">
         <Pagination />
