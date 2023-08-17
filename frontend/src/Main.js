@@ -22,6 +22,7 @@ import Banking from "./banking";
 import Utility from "./utility";
 import imageVariables from "./imagevariables";
 import Detail from "./detail";
+import Contact from "./contact";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -396,6 +397,16 @@ function Nav() {
                   </span>
                 </a>
               </li>
+              <li>
+                <a
+                  class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
+                  href="/contact"
+                >
+                  <span class="relative flex items-center justify-center">
+                    Contact
+                  </span>
+                </a>
+                </li>
             </ul>
           </div>
         </div>
@@ -439,6 +450,14 @@ function Nav() {
                 className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
               >
                 <a href="/utility">유틸리티 앱</a>
+              </button>
+            </li>
+            <li>
+              <button
+                type="button"
+                className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+              >
+                <a href="/contact">Contact</a>
               </button>
             </li>
           </ul>
@@ -599,10 +618,18 @@ function FooterComp() {
               유틸리티 앱
             </a>
           </li>
+          <li>
+            <a
+              class="font-bold text-sm text-white transition link link-hover block mt-2"
+              href="/contact"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
         <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
           <span className="flex justify-center text-white mt-8  footer-title text-2xl font-extrabold">
-            Contact Us
+            Information
           </span>
           <div className="flex justify-center text-white mt-4 footer-title text-sm font-bold">
             <svg
@@ -761,6 +788,7 @@ function Main() {
           <Route path="/traffic" element={<Traffic />} />
           <Route path="/banking" element={<Banking />} />
           <Route path="/utility" element={<Utility />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Router>
       <FooterComp />

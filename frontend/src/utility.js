@@ -305,7 +305,7 @@ function Card() {
                 </div>
 
                 <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
-                  {data.view}
+                  {data.view}회
                 </div>
                 <a
                   href={`/detail?name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
