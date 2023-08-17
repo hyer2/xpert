@@ -134,6 +134,7 @@ function MainComp() {
 }
 function Contents() {
   const [likeCount, setLikeCount] = useState(0);
+  const ranking = 0;
 
   const increaseLikes = () => {
     setLikeCount(likeCount + 1);
@@ -145,7 +146,7 @@ function Contents() {
         <div key={index} class="bg-white rounded-lg m-5">
           <div className="w-full h-auto lg:w-[1016px] lg:h-[139px] relative shadow flex items-center">
             <h1 class="w-[10%] justify-center items-center text-center text-gray-500 text-2xl lg:text-5xl font-bold">
-              1
+              {index + 1}
             </h1>
             <div class="w-[20%] justify-center items-center rounded-lg">
               <img src={imageVariables[data.image]} alt={data.name} />
