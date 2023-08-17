@@ -96,7 +96,7 @@ const kc3 = new GuideItem("매장 키오스크", "카페", "투썸플레이스",
 
 //교통
 const tv1 = new GuideItem("교통", "차량", "카카오택시", 5,"카카오택시",30000,1300);
-// const tv2 = new GuideItem("교통", "차량", "쏘카", 5, 쏘카,30000,1300);
+const tv2 = new GuideItem("교통", "차량", "쏘카", 5, "쏘카",30000,1300);
 const tv3 = new GuideItem("교통", "차량", "버스타고", 5,"버스타고",30000,1300);
 
 const tm1 = new GuideItem("교통", "지도", "네이버지도", 5,"네이버지도",30000,1300);
@@ -113,7 +113,7 @@ const ur1 = new GuideItem("유틸리티", "예약", "테이블링", 5,"테이블
 const ur2 = new GuideItem("유틸리티", "예약", "캐치테이블", 5,"catchtable",30000,1300);
 const ur3 = new GuideItem("유틸리티", "예약", "트립닷컴", 5,"트립닷컴",30000,1300);
 const ur4 = new GuideItem("유틸리티", "예약", "여기어때", 5,"여기어때",30000,1300);
-// const ur5 = new GuideItem("유틸리티", "예약", "야놀자", 5,야놀자,30000,1300);
+const ur5 = new GuideItem("유틸리티", "예약", "야놀자", 5,"야놀자",30000,1300);
 const ur6 = new GuideItem("유틸리티", "예약", "아고다", 5,"아고다",30000,1300);
 
 const ue1 = new GuideItem("유틸리티", "엔터테인먼트", "티빙", 5,"티빙",30000,1300);
@@ -152,7 +152,7 @@ storage.addData(kc3);
 
 //교통 데이터 추가
 storage.addData(tv1);
-// storage.addData(tv2);
+storage.addData(tv2);
 storage.addData(tv3);
 storage.addData(tm1);
 storage.addData(tm2);
@@ -166,7 +166,7 @@ storage.addData(ur1);
 storage.addData(ur2);
 storage.addData(ur3);
 storage.addData(ur4);
-// storage.addData(ur5);
+storage.addData(ur5);
 storage.addData(ur6);
 storage.addData(ue1);
 storage.addData(ue2);
