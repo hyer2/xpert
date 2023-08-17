@@ -554,24 +554,25 @@ function Rankings() {
   );
 }
 */
+
 function FooterComp() {
   return (
     <footer
-      class=" bg-white dark:bg-gray-900"
       style={{
         marginTop: "200px",
         background: `linear-gradient(
-  rgba(255, 255, 255, 1) 0%,
-
-rgba(255, 255, 255, 0) 100%
-), url(${bgImage})`,
+        rgba(255, 255, 255, 1) 0%,
+        
+        rgba(255, 255, 255, 0) 100%
+        ), url(${bgImage})`,
         backgroundRepeat: "no-repeat",
-        backgroundSize: "100% auto",
+        backgroundSize: "cover",
         // backgroundImage: `url(${bgImage})`,
         // backgroundSize: "100% auto",
-        width: "100%",
-        height: "100%",
+        // width: "100%",
+        // height: "450px",
       }}
+      className="mt-10 w-full"
     >
       <div class="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
         <span className="flex justify-center text-white mt-20 footer-title text-2xl font-extrabold">
