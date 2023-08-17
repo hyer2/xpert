@@ -22,8 +22,8 @@ import Banking from "./banking";
 import Utility from "./utility";
 import imageVariables from "./imagevariables";
 import Detail from "./detail";
-import {Carousel} from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 //import reportWebVitals from './reportWebVitals';
 import {
@@ -59,7 +59,7 @@ function Slider() {
   return (
     <div className="SliderWrapper">
       <div className="Comment w-100 h-96 relative pb-100 text-center mt-12">
-      <div className="titleText absolute left-10 top-0 inset-x-0 text-center">
+        <div className="titleText absolute left-10 top-0 inset-x-0 text-center">
           <span
             className="text-white right-2 bottom-1 bg-blue-900 rounded-lg bg-opacity-80 font-bold text-xl p-2"
             style={{
@@ -72,46 +72,45 @@ function Slider() {
           </span>
         </div>
         <div className="reviewImagesContainer w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl">
-        <div className="reviewImages w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl mt-20">
-          <Carousel
-            selectedItem={currentIndex}
-            interval={10000}
-            autoPlay
-            infiniteLoop
-            showArrows={false}
-            showThumbs={false}
-            showStatus={false}
-            swipeable
-            emulateTouch
-            stopOnHover={false}
-            transitionTime={1000}
-            swipeScrollTolerance={5}
-            swipeableProps={{ delta: 40 }}
-          >
-            {images.map((image, index) => (
-              <div key={index}>
-                <img src={image} alt={`Review ${index + 1}`} />
-              </div>
-            ))}
-          </Carousel>
-          <div className="carouselButtons">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                className={`carouselButton ${currentIndex === index ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-              />
-            ))}
-          </div>
+          <div className="reviewImages w-full h-96 relative pb-100 flex mx-auto max-w-screen-xl mt-20">
+            <Carousel
+              selectedItem={currentIndex}
+              interval={10000}
+              autoPlay
+              infiniteLoop
+              showArrows={false}
+              showThumbs={false}
+              showStatus={false}
+              swipeable
+              emulateTouch
+              stopOnHover={false}
+              transitionTime={1000}
+              swipeScrollTolerance={5}
+              swipeableProps={{ delta: 40 }}
+            >
+              {images.map((image, index) => (
+                <div key={index}>
+                  <img src={image} alt={`Review ${index + 1}`} />
+                </div>
+              ))}
+            </Carousel>
+            <div className="carouselButtons">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  className={`carouselButton ${
+                    currentIndex === index ? "active" : ""
+                  }`}
+                  onClick={() => goToSlide(index)}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
 }
-
-
-
 
 function MainComp() {
   return (
@@ -184,9 +183,13 @@ function Contents() {
                 </div>
                 <div class="flex items-center">
                   <button class="m-3 lg:m-0 w-full h-full bg-blue-300 rounded-lg hover:bg-blue-700">
-                    <div class="items-center justify-center">
-                      <img src={infoImage} alt="Info Icon" />
-                    </div>
+                    <a
+                      href={`/detail?&name=${data.name}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
+                    >
+                      <div class="items-center justify-center">
+                        <img src={infoImage} alt="Info Icon" />
+                      </div>
+                    </a>
                   </button>
                 </div>
               </div>
