@@ -205,12 +205,11 @@ const query = "맥도";
 const searchResult = storage.searchData(query);
 console.log("Search result for '" + query + "':", searchResult);
 
-module.exports={
-  allData: allData,
-  mainItems : mainItems,
-  kioskItems : kioskItems,
-  trafficItems : trafficItems,
-  financeItems : financeItems,
-  utilityItems : utilityItems,
-
-}
+export {
+  allData,
+  mainItems,
+  kioskItems,
+  trafficItems,
+  financeItems,
+  utilityItems
+};
