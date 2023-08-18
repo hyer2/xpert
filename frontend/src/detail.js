@@ -3,7 +3,7 @@ import mcImage from "./icons/mcdonalds.png";
 import imageVariables from "./imagevariables";
 import likeImage from "./icons/like.png";
 import eyeImage from "./icons/eye.png";
-
+import videoVariables from "./videoVariables";
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
@@ -179,7 +179,7 @@ function Detail() {
               <iframe
                 width="80%"
                 height="400"
-                src="https://www.youtube.com/embed/yHI8zRBKmVY"
+                src={videoVariables[image]}
                 frameborder="0"
                 allowfullscreen
               ></iframe>
