@@ -24,17 +24,17 @@ function Total() {
     setDropdownOpen(false);
   };
 
-  const [inputValue, setInputValue] = useState("");
+  //   const [inputValue, setInputValue] = useState("");
 
   // 버튼 클릭 핸들러
   const handleButtonClick = (e) => {
     const value = e.target.getAttribute("data-value");
-    setInputValue(value);
+    setSearchTerm(value);
   };
 
   //Input
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    setSearchTerm(e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -152,7 +152,7 @@ function Total() {
                   </button>
                   <button
                     type="button"
-                    data-value="베스킨라빈스"
+                    data-value="네이버지도"
                     onClick={handleButtonClick}
                     class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
                   >
@@ -160,7 +160,7 @@ function Total() {
                   </button>
                   <button
                     type="button"
-                    data-value="공차"
+                    data-value="토스"
                     onClick={handleButtonClick}
                     class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
                   >
@@ -168,7 +168,7 @@ function Total() {
                   </button>
                   <button
                     type="button"
-                    data-value="버거킹"
+                    data-value="쿠팡"
                     onClick={handleButtonClick}
                     class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-3 text-center mb-2 w-32"
                   >
@@ -176,11 +176,11 @@ function Total() {
                   </button>
                   <button
                     type="button"
-                    data-value="서브웨이"
+                    data-value="넷플릭스"
                     onClick={handleButtonClick}
                     class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
                   >
-                    서브웨이
+                    넷플릭스
                   </button>
                 </div>
               </div>
