@@ -4,6 +4,7 @@ import imageVariables from "./imagevariables";
 import likeImage from "./icons/like.png";
 import eyeImage from "./icons/eye.png";
 import videoVariables from "./videoVariables";
+import textVariables from "./textVariables";
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
   name = name.replace(/[\[\]]/g, "\\$&");
@@ -12,6 +13,25 @@ function getParameterByName(name, url) {
   if (!results) return null;
   if (!results[2]) return "";
   return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function RenderTextWithBreaks({ text }) {
+  const processedText = text
+      .split('\n')
+      .map(str => str.trim())
+      .filter(str => str)  // 빈 문자열 제거
+      .join('\n');
+
+  return (
+      <>
+      {processedText.split('\n').map((str, index) => 
+        <React.Fragment key={index}>
+          {str}
+          <br />
+          </React.Fragment>
+      )}
+      </>
+  );
 }
 
 // URL에서 데이터 가져오기
@@ -61,6 +81,7 @@ function Detail() {
     </svg>
   );
 
+  
   const RatingComponent = ({ level }) => {
     return (
       <div class="flex items-center justify-center hidden lg:flex">
@@ -218,24 +239,8 @@ function Detail() {
                 style={{ backgroundColor: "rgba(219, 234, 254, 0.3)" }}
               >
                 <div class="p-5">
-                  <p class="text-[15px] text-gray-500 whitespace-normal dark:text-gray-400">
-                    1. 화면을 터치하고 [매장에서 식사] 또는 [테이크 아웃]을
-                    선택합니다. <br />
-                    <br />
-                    2. 원하는 버거를 선택합니다. <br />
-                    <br />
-                    3. 원하는 구성을 선택합니다. <br />
-                    ex) 케이준 맥치킨 단품/ 케이준 맥치킨 세트/ 케이준 4.
-                    맥치킨+라지세트 재료 추가/변경을 원하시는 분은 [재료
-                    추가/변경]을 터치합니다. <br />
-                    <br />
-                    5. 음료를 선택합니다. <br />
-                    <br />
-                    6.주문을 확인하고 하단에 있는 [장바구니 추가]를 터치합니다.{" "}
-                    <br />
-                    <br />
-                    7. [주문완료] 터치, [결재하기] 터치 후, 신용카드 결재하면
-                    주문 완료입니다. <br />
+                <p class="text-[15px] text-gray-500 whitespace-normal dark:text-gray-400">
+                <RenderTextWithBreaks text={textVariables[image]} />
                   </p>
                 </div>
               </div>
