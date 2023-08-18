@@ -23,6 +23,7 @@ import Utility from "./utility";
 import imageVariables from "./imagevariables";
 import Detail from "./detail";
 import Contact from "./contact";
+import Total from "./total";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -117,10 +118,13 @@ function MainComp() {
   return (
     <div>
       <div class="p-8 flex flex-col items-center justify-center">
-        <div class="mb-10">
-          <Search />
-        </div>
-
+        <div class="mb-10"></div>
+        <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+          TOP5 Rankings
+        </h1>
+        <p class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400">
+          최근 일주일간 검색이 가장 많이 된 매장 목록입니다.
+        </p>
         <div
           class="p-10 rounded-xl"
           style={{ backgroundColor: "rgba(219, 234, 254, 0.3)" }}
@@ -359,6 +363,17 @@ function Nav() {
               <li>
                 <a
                   class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
+                  href="/total"
+                >
+                  <span class="relative flex items-center justify-center">
+                    전체
+                  </span>
+                </a>
+              </li>
+
+              <li>
+                <a
+                  class="relative font-bold text-regular text-indigo-900 before:absolute before:-bottom-4 before:h-0.5 before:w-full before:origin-left before:scale-x-0 before:bg-slate-500 before:transition hover:before:scale-100 pb-2 hover:text-indigo-500 hover:before:bg-indigo-500"
                   href="/shop"
                 >
                   <span class="relative flex items-center justify-center">
@@ -406,7 +421,7 @@ function Nav() {
                     Contact
                   </span>
                 </a>
-                </li>
+              </li>
             </ul>
           </div>
         </div>
@@ -783,6 +798,7 @@ function Main() {
       <Router>
         <Routes>
           <Route path="/" element={<Init />} />
+          <Route path="/total" element={<Total />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/detail" element={<Detail />} />
           <Route path="/traffic" element={<Traffic />} />
