@@ -81,53 +81,52 @@ class DataStorage {
 // GuideItem 클래스 인스턴스 생성
 
 //매장 키오스크
-const kf1 = new GuideItem("매장 키오스크", "패스트푸드", "맥도날드", 5,"mcdonaldsLogo",30000,1300);
-const kf2 = new GuideItem("매장 키오스크", "패스트푸드", "배스킨라빈스", 4,"br",30000,1300);
-const kf3 = new GuideItem("매장 키오스크", "패스트푸드", "버거킹", 4,"burgerking",30000,1300);
-const kf4 = new GuideItem("매장 키오스크", "패스트푸드", "KFC", 4,"kfc",30000,1300);
-const kf5 = new GuideItem("매장 키오스크", "패스트푸드", "샐러디", 4,"샐러디",30000,1300);
+const kf1 = new GuideItem("매장 키오스크", "패스트푸드", "맥도날드", 5,"mcdonaldsLogo","30000","1300");
+const kf2 = new GuideItem("매장 키오스크", "패스트푸드", "배스킨라빈스", 4,"br","19271","1200");
+const kf3 = new GuideItem("매장 키오스크", "패스트푸드", "버거킹", 4,"burgerking","15032","1100");
+const kf4 = new GuideItem("매장 키오스크", "패스트푸드", "KFC", 4,"kfc","8325","1000");
+const kf5 = new GuideItem("매장 키오스크", "패스트푸드", "샐러디", 4,"샐러디","321","900");
 
-const km1 = new GuideItem("매장 키오스크", "영화관", "CGV", 4,"cgv",30000,1300);
-const km2 = new GuideItem("매장 키오스크", "영화관", "롯데시네마", 4,"롯데시네마",30000,1300);
+const km1 = new GuideItem("매장 키오스크", "영화관", "CGV", 4,"cgv","28721","1130");
+const km2 = new GuideItem("매장 키오스크", "영화관", "롯데시네마", 4,"롯데시네마","17302","1200");
 
-const kc1 = new GuideItem("매장 키오스크", "카페", "공차", 4,"공차",30000,1300);
-const kc2 = new GuideItem("매장 키오스크", "카페", "이디야", 3, "이디야",30000,1300);
-const kc3 = new GuideItem("매장 키오스크", "카페", "투썸플레이스", 4,"투썸",30000,1300);
+const kc1 = new GuideItem("매장 키오스크", "카페", "공차", 4,"공차","16032","1140");
+const kc2 = new GuideItem("매장 키오스크", "카페", "이디야", 3, "이디야","14921","1200");
+const kc3 = new GuideItem("매장 키오스크", "카페", "투썸플레이스", 4,"투썸","13920","1100");
 
 //교통
-const tv1 = new GuideItem("교통", "차량", "카카오택시", 5,"카카오택시",30000,1300);
-const tv2 = new GuideItem("교통", "차량", "쏘카", 5, "쏘카",30000,1300);
-const tv3 = new GuideItem("교통", "차량", "버스타고", 5,"버스타고",30000,1300);
+const tv1 = new GuideItem("교통", "차량", "카카오택시", 5,"카카오택시","24386","1120");
+const tv2 = new GuideItem("교통", "차량", "쏘카", 5, "쏘카","265","100");
+const tv3 = new GuideItem("교통", "차량", "버스타고", 5,"버스타고","581","400");
 
-const tm1 = new GuideItem("교통", "지도", "네이버지도", 5,"네이버지도",30000,1300);
-const tm2 = new GuideItem("교통", "지도", "카카오맵", 5,"카카오맵",30000,1300);
-const tm3 = new GuideItem("교통", "지도", "구글맵", 5,"구글맵",30000,1300);
+const tm1 = new GuideItem("교통", "지도", "네이버지도", 5,"네이버지도","1692","1214");
+const tm2 = new GuideItem("교통", "지도", "카카오맵", 5,"카카오맵","1590","1200");
+const tm3 = new GuideItem("교통", "지도", "구글맵", 5,"구글맵","6909","1100");
 
 //유틸리티
-const us1 = new GuideItem("유틸리티", "쇼핑", "쿠팡", 5,"쿠팡",30000,1300);
+const us1 = new GuideItem("유틸리티", "쇼핑", "쿠팡", 5,"쿠팡","21920","1300");
 
-const ud1 = new GuideItem("유틸리티", "배달", "배달의민족", 5,"배달의민족",30000,1300);
-const ud2 = new GuideItem("유틸리티", "배달", "요기요", 5,"요기요",30000,1300);
+const ud1 = new GuideItem("유틸리티", "배달", "배달의민족", 5,"배달의민족","14892","1196");
+const ud2 = new GuideItem("유틸리티", "배달", "요기요", 5,"요기요","19093","1100");
 
-const ur1 = new GuideItem("유틸리티", "예약", "테이블링", 5,"테이블링",30000,1300);
-const ur2 = new GuideItem("유틸리티", "예약", "캐치테이블", 5,"catchtable",30000,1300);
-const ur3 = new GuideItem("유틸리티", "예약", "트립닷컴", 5,"트립닷컴",30000,1300);
-const ur4 = new GuideItem("유틸리티", "예약", "여기어때", 5,"여기어때",30000,1300);
-const ur5 = new GuideItem("유틸리티", "예약", "야놀자", 5,"야놀자",30000,1300);
-const ur6 = new GuideItem("유틸리티", "예약", "아고다", 5,"아고다",30000,1300);
+const ur1 = new GuideItem("유틸리티", "예약", "테이블링", 5,"테이블링","101","30");
+const ur2 = new GuideItem("유틸리티", "예약", "캐치테이블", 5,"catchtable","103","50");
+const ur3 = new GuideItem("유틸리티", "예약", "트립닷컴", 5,"트립닷컴","621","103");
+const ur4 = new GuideItem("유틸리티", "예약", "여기어때", 5,"여기어때","921","203");
+const ur5 = new GuideItem("유틸리티", "예약", "야놀자", 5,"야놀자","1053","803");
+const ur6 = new GuideItem("유틸리티", "예약", "아고다", 5,"아고다","76","21");
 
-const ue1 = new GuideItem("유틸리티", "엔터테인먼트", "티빙", 5,"티빙",30000,1300);
-const ue2 = new GuideItem("유틸리티", "엔터테인먼트", "넷플릭스", 4,"넷플릭스",30000,1300);
+const ue1 = new GuideItem("유틸리티", "엔터테인먼트", "티빙", 5,"티빙","16283","1213");
+const ue2 = new GuideItem("유틸리티", "엔터테인먼트", "넷플릭스", 4,"넷플릭스","18920","1200");
 
 //금융
-const fm1 = new GuideItem("금융", "모바일뱅킹", "국민은행", 4,"국민은행",30000,1300);
-const fm2 = new GuideItem("금융", "모바일뱅킹", "우리은행", 4,"우리은행",30000,1300);
-const fm3 = new GuideItem("금융", "모바일뱅킹", "신한은행", 4,"신한은행",30000,1300);
-const fm4 = new GuideItem("금융", "모바일뱅킹", "농협은행", 4,"농협은행",30000,1300);
-const fm5 = new GuideItem("금융", "모바일뱅킹", "카카오뱅크", 4,"카카오페이",30000,1300);
-const fm6 = new GuideItem("금융", "모바일뱅킹", "네이버페이", 4,"네이버페이",30000,1300);
-const fm7 = new GuideItem("금융", "모바일뱅킹", "토스", 4,"토스",30000,1300);
-
+const fm1 = new GuideItem("금융", "모바일뱅킹", "국민은행", 4,"국민은행","20002","1256");
+const fm2 = new GuideItem("금융", "모바일뱅킹", "우리은행", 4,"우리은행","16232","1200");
+const fm3 = new GuideItem("금융", "모바일뱅킹", "신한은행", 4,"신한은행","15123","1100");
+const fm4 = new GuideItem("금융", "모바일뱅킹", "농협은행", 4,"농협은행","14136","1000");
+const fm5 = new GuideItem("금융", "모바일뱅킹", "카카오뱅크", 4,"카카오페이","13126","900");
+const fm6 = new GuideItem("금융", "모바일뱅킹", "네이버페이", 4,"네이버페이","12532","800");
+const fm7 = new GuideItem("금융", "모바일뱅킹", "토스", 4,"토스","12193","770");
 
 
 

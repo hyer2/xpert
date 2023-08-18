@@ -42,6 +42,8 @@ const name = getParameterByName("name");
 const subcategory = getParameterByName("subcategory");
 const image = getParameterByName("image");
 const level = getParameterByName("level");
+const view = getParameterByName("view");
+const like = getParameterByName("like");
 
 // 데이터 출력
 
@@ -271,7 +273,7 @@ function Detail() {
                     }}
                     onClick={increaseLikes}
                   >
-                    {likeCount}개
+                    {parseInt(like,10)+ likeCount}개
                   </span>
                 </div>
                 <div
@@ -290,7 +292,7 @@ function Detail() {
                 </div>
 
                 <div className="text-center text-stone-500 text-[15px] font-medium ml-2">
-                  <span>{watchcount}회</span>
+                  <span>{view}회</span>
                 </div>
               </div>
             </div>

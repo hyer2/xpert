@@ -222,7 +222,7 @@ function Contents() {
                 <div class="flex items-center">
                   <button class="m-3 lg:m-0 w-full h-full bg-blue-300 rounded-lg hover:bg-blue-700">
                     <a
-                      href={`/detail?&name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
+                      href={`/detail?&name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}&view=${data.view}&like=${data.like}`}
                     >
                       <div class="items-center justify-center">
                         <img src={infoImage} alt="Info Icon" />
@@ -254,7 +254,7 @@ function Contents() {
                   </div>
 
                   <div className="text-center text-stone-500 text-[15px] font-medium mr-5">
-                    {likeCount}개
+                    {data.like}개
                   </div>
 
                   <div class="text-center text-stone-500 text-[15px] font-medium mr-2">
