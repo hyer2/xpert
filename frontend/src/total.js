@@ -82,8 +82,29 @@ function Total() {
     item.name.includes(searchTerm)
   );
 
+  //pagination
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12; // 예: 페이지당 8개의 아이템을 표시
+
+  const totalPages = Math.ceil(filteredKioskItems.length / itemsPerPage);
+
+  const handleChangePage = (newPage) => {
+    if (newPage > 0 && newPage <= totalPages) {
+      setCurrentPage(newPage);
+    }
+  };
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+
+  const displayedData = filteredKioskItems.slice(startIndex, endIndex);
+
   return (
     <div class="w-full h-full">
+      {/* <div>
+        <Component allData={allData} imageVariables={imageVariables} />
+      </div> */}
       <div class="items-center justify-center">
         <div>
           {/* bg-center bg-no-repeat bg-cover bg-blend-multiply bg-indigo-900 */}
@@ -190,7 +211,7 @@ function Total() {
       </div>
       <div>
         <div className="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
-          {filteredKioskItems.map((data, index) => (
+          {displayedData.map((data, index) => (
             <div key={index}>
               <div className="sw-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-center p-5">
@@ -238,102 +259,27 @@ function Total() {
           ))}
         </div>
       </div>
-      <div class="flex items-center justify-center">
-        <div>
-          <nav aria-label="Page navigation example">
-            <ul class="flex items-center -space-x-px h-8 text-sm">
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span class="sr-only">Previous</span>
-                  <svg
-                    class="w-2.5 h-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 6 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M5 1 1 5l4 4"
-                    />
-                  </svg>
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  aria-current="page"
-                  class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-                >
-                  1
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  2
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  3
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  4
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  5
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  <span class="sr-only">Next</span>
-                  <svg
-                    class="w-2.5 h-2.5"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 6 10"
-                  >
-                    <path
-                      stroke="currentColor"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="m1 9 4-4-4-4"
-                    />
-                  </svg>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
+      <div className="flex justify-center mt-5">
+        <button
+          className="mx-2 p-2 border rounded hover:bg-blue-100 hover:font-extrabold hover:text-blue-600"
+          onClick={() => handleChangePage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          이전
+        </button>
+        <span class="items-center justify-center mx-5 text-gray-700 text-md">
+          {currentPage}/{totalPages}
+        </span>
+        <button
+          className="mx-2 p-2 border rounded hover:bg-blue-100 hover:font-extrabold hover:text-blue-600"
+          onClick={() => handleChangePage(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          다음
+        </button>
       </div>
     </div>
   );
 }
+
 export default Total;
