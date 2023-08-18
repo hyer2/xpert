@@ -12,8 +12,8 @@ const videoVariables = {
     카카오택시: "https://www.youtube.com/embed/o0ncZB_S0c4",
     쏘카: "https://www.youtube.com/embed/JvpIZo4hlh8",
     버스타고: "https://www.youtube.com/embed/dDktbGOztMg",
-    네이버지도 : require('./icons/네이버지도.jpg'),
-    카카오맵 : require('./icons/카카오맵.jpg'),
+    네이버지도 : "https://www.youtube.com/embed/NSfWjwa6rmc",
+    카카오맵 : "https://www.youtube.com/embed/yCEcmvU83Iw",
     구글맵: "https://www.youtube.com/embed/U8xKhMbAYos",
     쿠팡: "https://www.youtube.com/embed/FWDa7tnPgm4",
     배달의민족: "https://www.youtube.com/embed/mRCZoac9zFc",
@@ -23,8 +23,8 @@ const videoVariables = {
     트립닷컴 : require('./icons/트립닷컴.jpg'),
     여기어때 : require('./icons/여기어때.jpg'),
     야놀자: "https://www.youtube.com/embed/ZWXNqDHjoBM",
-    아고다 : require('./icons/아고다.jpg'),
-    티빙 : require('./icons/티빙.jpg'),
+    아고다 : "https://www.youtube.com/embed/r1-yGn1TSTc",
+    티빙 : "https://www.youtube.com/embed/cqcWYg_iP84",
     넷플릭스: "https://www.youtube.com/embed/wngROsQBlVs",
     국민은행: "https://www.youtube.com/embed/VeN0TJKuLAw",
     우리은행: "https://www.youtube.com/embed/9Y00iF2nVhw",
@@ -34,9 +34,6 @@ const videoVariables = {
     토스: "https://www.youtube.com/embed/LKzfcROxl_g"
     
     
-
-
-    // ... 나머지 이미지 변수명과 이미지 경로 추가
   };
   
   export default videoVariables;
