@@ -4,7 +4,7 @@ import mcImage from "./icons/mcdonalds.png";
 import likeImage from "./icons/like.png";
 import eyeImage from "./icons/eye.png";
 import bgImage from "./icons/sub-bg.jpg";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import imageVariables from "./imagevariables";
 
@@ -13,7 +13,9 @@ const trafficItems = dataModule.trafficItems;
 
 function Traffic() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("전체");
+  const [selectedCategory, setSelectedCategory] = useState("차량");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredtrafficItems, setFilteredtrafficItems] = useState(trafficItems);
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -24,24 +26,36 @@ function Traffic() {
     setSearchTerm(itemText);
     setDropdownOpen(false);
   };
-
-  //const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   // 버튼 클릭 핸들러
-  const handleButtonClick = (e) => {
-    const value = e.target.getAttribute("data-value");
-    setSearchTerm(value);
+  const handleButtonClick = (name) => {
+    setSelectedCategory(selectedCategory);
+    setSearchTerm(name);
   };
+  
+
 
   //Input
   const handleInputChange = (e) => {
-    setSearchTerm(e.target.value);
+    setInputValue(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // 검색어 사용 또는 상태 업데이트 등의 작업 수행
   };
+  
+  useEffect(() => {
+    if (selectedCategory === "전체") {
+      const filteredItems = searchData(searchTerm, selectedCategory);
+      setFilteredtrafficItems(trafficItems);
+    } else {
+      const filteredItems = searchData(searchTerm, selectedCategory);
+      setFilteredtrafficItems(filteredItems);
+    }
+  }, [selectedCategory, searchTerm]);
+
 
   const StarIcon = ({ colorClass }) => (
     <svg
@@ -74,32 +88,24 @@ function Traffic() {
       </div>
     );
   };
-
-  // 검색 기능을 위한 상태와 함수
-  const [searchTerm, setSearchTerm] = useState("");
-
-  // 카드 아이템의 이름을 검색어와 비교하여 필터링
-  const filteredKioskItems = trafficItems.filter((item) =>
-    item.name.includes(searchTerm)
-  );
-
-  //pagination
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12; // 예: 페이지당 8개의 아이템을 표시
-
-  const totalPages = Math.ceil(filteredKioskItems.length / itemsPerPage);
-
-  const handleChangePage = (newPage) => {
-    if (newPage > 0 && newPage <= totalPages) {
-      setCurrentPage(newPage);
-    }
+  const searchData = (query, category) => {
+    return trafficItems.filter((item) => {
+      // Check if the query matches any property of the item
+      if (
+        item.name.includes(query) ||
+        item.category.includes(query) ||
+        item.subcategory.includes(query) ||
+        item.level.toString().includes(query)
+      ) {
+        // If category is "전체" or matches the item's subcategory, return true
+        if (category === "교통" || category === item.subcategory) {
+          return true;
+        }
+      }
+      return false;
+    });
   };
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
-
-  const displayedData = filteredKioskItems.slice(startIndex, endIndex);
+  
 
   return (
     <div class="w-full h-full">
@@ -123,112 +129,76 @@ function Traffic() {
             }}
           >
             <div class="items-center justify-center">
-              <div>
-                <div className="flex mt-8">
-                  <label
-                    htmlFor="search-dropdown"
-                    className="mb-8 text-sm font-medium text-gray-900 sr-only dark:text-white"
-                  >
-                    Your Email
-                  </label>
-                  <div className="flex mr-8">
+      <div>
+        <div className="flex mt-8">
+          {/* 드롭다운 메뉴 추가 */}
+          <div className="flex mr-8">
+            <button
+              id="dropdown-button"
+              className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-5 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${
+                isDropdownOpen ? "rounded-lg" : "rounded-lg"
+              }`}
+              style={{ width: "130px", justifyContent: "space-between" }}
+              onClick={toggleDropdown}
+              type="button"
+            >
+              <span className="flex items-center">
+                {selectedCategory === "true" ? "차량" : selectedCategory}
+              </span>
+              <svg
+                className={`w-2.5 h-2.5 transform ${
+                  isDropdownOpen ? "rotate-180" : "rotate-0"
+                }`}
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 10 6"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="m1 2 4 4 4-4"
+                />
+              </svg>
+            </button>
+            {isDropdownOpen && (
+              <div
+                id="dropdown"
+                className="absolute mt-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
+              >
+                <ul
+                  className="py-2 text-sm text-gray-700 dark:text-gray-200"
+                  aria-labelledby="dropdown-button"
+                >
+                  <li>
                     <button
-                      id="dropdown-button"
-                      className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-5 text-sm font-medium text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${
-                        isDropdownOpen ? "rounded-lg" : "rounded-lg"
-                      }`}
-                      style={{
-                        width: "130px",
-                        justifyContent: "space-between",
-                      }} // 버튼 넓이 고정 및 내용 가로 정렬
-                      onClick={toggleDropdown}
                       type="button"
+                      className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={() => handleDropdownItemClick("차량")}
                     >
-                      <span className="flex items-center">
-                        {selectedCategory === "true"
-                          ? "전체"
-                          : selectedCategory}
-                      </span>
-                      <svg
-                        className={`w-2.5 h-2.5 transform ${
-                          isDropdownOpen ? "rotate-180" : "rotate-0"
-                        }`}
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 10 6"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="m1 2 4 4 4-4"
-                        />
-                      </svg>
+                     차량
                     </button>
-                    {isDropdownOpen && (
-                      <div
-                        id="dropdown"
-                        className="absolute  mt-12 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700"
-                      >
-                        <ul
-                          className="py-2 text-sm text-gray-700 dark:text-gray-200"
-                          aria-labelledby="dropdown-button"
-                        >
-                          <li>
-                            <button
-                              type="button"
-                              className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              onClick={() => handleDropdownItemClick("전체")}
-                            >
-                              전체
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              onClick={() => handleDropdownItemClick("차량")}
-                            >
-                              차량 (택시, 버스)
-                            </button>
-                          </li>
-                          <li>
-                            <button
-                              type="button"
-                              className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              onClick={() => handleDropdownItemClick("지도")}
-                            >
-                              지도
-                            </button>
-                          </li>
-                          {/* <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("영화관")}
-                >
-                  영화관
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                  onClick={() => handleDropdownItemClick("주차시스템")}
-                >
-                  주차시스템
-                </button>
-              </li> */}
-                        </ul>
-                      </div>
-                    )}
-                  </div>
-                  <div className="relative w-full">
-                    <form onSubmit={handleSubmit}>
+                  </li>
+                  <li>
+                    <button
+                      type="button"
+                      className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      onClick={() => handleDropdownItemClick("지도")}
+                    >
+                     지도
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
+          <div className="relative w-full">
+            
+            <form onSubmit={handleSubmit}>
                       <input
-                        type="search"
+                        type="text"
                         id="search-dropdown"
                         className="text-[15px] p-2.5 w-[500px] lg:w-[750px] z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
                         placeholder="검색어를 입력하세요."
@@ -236,57 +206,47 @@ function Traffic() {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                       />
-                      <button
-                        type="submit"
-                        className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                      >
-                        검색
-                      </button>
-                    </form>
-                  </div>
+              <button
+                type="submit"
+                className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                검색
+              </button>
+            </form>
+          </div>
                 </div>
               </div>
               <div>
-                <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16 hidden lg:flex">
+                <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16 hidden lg:flex justify-center">
                   <button
                     type="button"
                     data-value="카카오택시"
-                    onClick={handleButtonClick}
+                    onClick={() => handleButtonClick("카카오택시")} 
                     class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
                   >
-                    카카오택시
+                   카카오택시
                   </button>
                   <button
                     type="button"
-                    data-value="카카오맵"
-                    onClick={handleButtonClick}
+                    data-value="쏘카"
+                    onClick={() => {
+
+                      handleButtonClick("쏘카");
+                    }}
                     class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
                   >
-                    카카오맵
-                  </button>
-                  <button
-                    type="button"
-                    data-value="네이버지도"
-                    onClick={handleButtonClick}
-                    class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-                  >
-                    네이버지도
-                  </button>
-                  <button
-                    type="button"
-                    data-value="우버"
-                    onClick={handleButtonClick}
-                    class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-3 text-center mb-2 w-32"
-                  >
-                    우버
+                    쏘카
                   </button>
                   <button
                     type="button"
                     data-value="버스타고"
-                    onClick={handleButtonClick}
+                    onClick={() => {
+
+                      handleButtonClick("버스타고");
+                    }}
                     class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
                   >
-                    버스타고
+                   버스타고
                   </button>
                 </div>
               </div>
@@ -295,10 +255,10 @@ function Traffic() {
         </div>
       </div>
       <div>
-        <div class="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
-          {displayedData.map((data, index) => (
+        <div className="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
+          {filteredtrafficItems.map((data, index) => (
             <div key={index}>
-              <div class="sw-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+              <div className="sw-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                 <div class="flex justify-center p-5">
                   <img
                     src={imageVariables[data.image]}
@@ -313,6 +273,7 @@ function Traffic() {
                       {data.name}
                     </h5>
                   </a>
+
                   <RatingComponent level={data.level} />
                   <div class="flex items-center justify-between">
                     <div class="text-center text-stone-500 font-medium hidden xl:flex">
@@ -331,7 +292,7 @@ function Traffic() {
                       {data.view}
                     </div>
                     <a
-                      href={`/detail?name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
+                      href={`/detail?&name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
                       class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                     >
                       more
@@ -344,24 +305,98 @@ function Traffic() {
         </div>
       </div>
       <div class="flex items-center justify-center">
-        <div className="flex justify-center mt-5">
-          <button
-            className="mx-2 p-2 border rounded hover:bg-blue-100 hover:font-extrabold hover:text-blue-600"
-            onClick={() => handleChangePage(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
-            이전
-          </button>
-          <span class="items-center justify-center mx-5 text-gray-700 text-md">
-            {currentPage}/{totalPages}
-          </span>
-          <button
-            className="mx-2 p-2 border rounded hover:bg-blue-100 hover:font-extrabold hover:text-blue-600"
-            onClick={() => handleChangePage(currentPage + 1)}
-            disabled={currentPage === totalPages}
-          >
-            다음
-          </button>
+        <div>
+          <nav aria-label="Page navigation example">
+            <ul class="flex items-center -space-x-px h-8 text-sm">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  <span class="sr-only">Previous</span>
+                  <svg
+                    class="w-2.5 h-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 1 1 5l4 4"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  aria-current="page"
+                  class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                >
+                  1
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  2
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  3
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  4
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  5
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  <span class="sr-only">Next</span>
+                  <svg
+                    class="w-2.5 h-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 9 4-4-4-4"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
         </div>
       </div>
     </div>
