@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import mcImage from "./icons/mcdonalds.png";
 import imageVariables from "./imagevariables";
 import likeImage from "./icons/like.png";
@@ -25,17 +25,17 @@ const level = getParameterByName("level");
 
 function Detail() {
   const [likeCount, setLikeCount] = useState(0);
-  const [watchCount, setWatchCount] = useState(0);
+  const [watchcount, setWatchcount] = useState(0);
   const [isLikeImageHovered, setIsLikeImageHovered] = useState(false);
-  const [isEyeImageHovered, setIsEyeImageHovered] = useState(false);
 
   const increaseLikes = () => {
     setLikeCount(likeCount + 1);
   };
+  
+  useEffect(() => {
+    setWatchcount(watchcount + 1);
+  }, []);
 
-  const increasewatch = () => {
-    setWatchCount(watchCount + 1);
-  };
 
   let categoryLink;
 
@@ -270,33 +270,25 @@ function Detail() {
                   </span>
                 </div>
                 <div
-                  className="text-center text-stone-500 text-[15px] font-medium mr-2"
-                  onClick={increasewatch}
-                  onMouseEnter={() => setIsEyeImageHovered(true)}
-                  onMouseLeave={() => setIsEyeImageHovered(false)}
-                  style={{
-                    cursor: "pointer",
-                    textDecoration: isEyeImageHovered ? "underline" : "none",
-                  }}
-                >
-                  <img
-                    src={eyeImage}
-                    alt="Watch"
-                    style={{
-                      verticalAlign: "middle",
-                      marginTop: "3px", // Adjust this value as needed
-                    }}
-                  />
+        style={{
+          cursor: 'pointer',
+        }}
+      >
+        <img
+          src={eyeImage}
+          alt="Watch"
+          style={{
+            verticalAlign: 'middle',
+            marginTop: '3px', // Adjust this value as needed
+          }}
+        />
+                
                 </div>
 
-                <div className="text-center text-stone-500 text-[15px] font-medium">
+                <div className="text-center text-stone-500 text-[15px] font-medium ml-2">
                   <span
-                    style={{
-                      textDecoration: isEyeImageHovered ? "underline" : "none",
-                    }}
-                    onClick={increasewatch}
                   >
-                    {watchCount}회
+                    {watchcount}회
                   </span>
                 </div>
               </div>
