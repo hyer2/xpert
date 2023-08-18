@@ -10,10 +10,9 @@ import imageVariables from "./imagevariables";
 const dataModule = require("./data");
 const allData = dataModule.allData;
 
-function GuideSearch() {
+function Total() {
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("전체");
-  const [searchTerm, setSearchTerm] = useState("");
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -43,113 +42,6 @@ function GuideSearch() {
     // 검색어 사용 또는 상태 업데이트 등의 작업 수행
   };
 
-  return (
-    <div class="items-center justify-center">
-      <div>
-        <div className="flex mt-8">
-          <label
-            htmlFor="search-dropdown"
-            className="mb-8 text-sm font-medium text-gray-900 sr-only dark:text-white"
-          >
-            Your Email
-          </label>
-          <div className="flex mr-8"></div>
-          <div className="relative w-full">
-            <form onSubmit={handleSubmit}>
-              <input
-                type="search"
-                id="search-dropdown"
-                className="text-[15px] p-2.5 w-[500px] lg:w-full z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
-                placeholder="검색어를 입력하세요."
-                required
-                value={inputValue}
-                onChange={handleInputChange}
-              />
-              <button
-                type="submit"
-                className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              >
-                검색
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16 hidden lg:flex">
-          <button
-            type="button"
-            data-value="맥도날드"
-            onClick={handleButtonClick}
-            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-          >
-            맥도날드
-          </button>
-          <button
-            type="button"
-            data-value="베스킨라빈스"
-            onClick={handleButtonClick}
-            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-          >
-            네이버지도
-          </button>
-          <button
-            type="button"
-            data-value="공차"
-            onClick={handleButtonClick}
-            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-          >
-            토스
-          </button>
-          <button
-            type="button"
-            data-value="버거킹"
-            onClick={handleButtonClick}
-            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-3 text-center mb-2 w-32"
-          >
-            쿠팡
-          </button>
-          <button
-            type="button"
-            data-value="서브웨이"
-            onClick={handleButtonClick}
-            class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
-          >
-            서브웨이
-          </button>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function GuideHeader() {
-  return (
-    <div>
-      {/* bg-center bg-no-repeat bg-cover bg-blend-multiply bg-indigo-900 */}
-      <section
-        class="flex items-center justify-center"
-        style={{
-          background: `linear-gradient(
-            rgba(255, 255, 255, 0) 20%,
-            rgba(255, 255, 255, 0.6) 75%,
-            rgba(255, 255, 255, 1) 100%
-          ), url(${bgImage})`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          // backgroundImage: `url(${bgImage})`,
-          // backgroundSize: "100% auto",
-          width: "100%",
-          height: "450px",
-        }}
-      >
-        <GuideSearch />
-      </section>
-    </div>
-  );
-}
-
-function Card() {
   const StarIcon = ({ colorClass }) => (
     <svg
       className={`w-4 h-4 ${colorClass}`}
@@ -182,177 +74,264 @@ function Card() {
     );
   };
 
-  return (
-    <div class="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
-      {allData.map((data, index) => (
-        <div key={index}>
-          <div class="sw-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex justify-center p-5">
-              <img
-                src={imageVariables[data.image]}
-                alt={data.name}
-                class="h-[100px] lg:h-[150px] rounded-lg"
-              />
-            </div>
+  // 검색 기능을 위한 상태와 함수
+  const [searchTerm, setSearchTerm] = useState("");
 
-            <div class="px-5 pb-5">
-              <a href="#">
-                <h5 class="text-lg lg:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-5 lg:mb-0 line-clamp-1">
-                  {data.name}
-                </h5>
-              </a>
-
-              <RatingComponent level={data.level} />
-              <div class="flex items-center justify-between">
-                <div class="text-center text-stone-500 font-medium hidden xl:flex">
-                  <img src={likeImage} />
-                </div>
-
-                <div class="text-center text-stone-500 font-medium hidden xl:flex">
-                  1,130개
-                </div>
-
-                <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
-                  <img src={eyeImage} />
-                </div>
-
-                <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
-                  {data.view}
-                </div>
-                <a
-                  href={`/detail?&name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
-                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                >
-                  more
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
+  // 카드 아이템의 이름을 검색어와 비교하여 필터링
+  const filteredKioskItems = allData.filter((item) =>
+    item.name.includes(searchTerm)
   );
-}
 
-// function Cards() {
-//   return (
-//     <div class="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
-//       <Card />
-//       {/* <Card />
-//       <Card />
-//       <Card /> */}
-//     </div>
-//   );
-// }
-
-function Pagination() {
-  return (
-    <div>
-      <nav aria-label="Page navigation example">
-        <ul class="flex items-center -space-x-px h-8 text-sm">
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              <span class="sr-only">Previous</span>
-              <svg
-                class="w-2.5 h-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M5 1 1 5l4 4"
-                />
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              aria-current="page"
-              class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
-            >
-              1
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              2
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              3
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              4
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              5
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              <span class="sr-only">Next</span>
-              <svg
-                class="w-2.5 h-2.5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 6 10"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m1 9 4-4-4-4"
-                />
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
-}
-function Total() {
   return (
     <div class="w-full h-full">
       <div class="items-center justify-center">
-        <GuideHeader />
+        <div>
+          {/* bg-center bg-no-repeat bg-cover bg-blend-multiply bg-indigo-900 */}
+          <section
+            class="flex items-center justify-center"
+            style={{
+              background: `linear-gradient(
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.6) 75%,
+            rgba(255, 255, 255, 1) 100%
+          ), url(${bgImage})`,
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+              // backgroundImage: `url(${bgImage})`,
+              // backgroundSize: "100% auto",
+              width: "100%",
+              height: "450px",
+            }}
+          >
+            <div class="items-center justify-center">
+              <div>
+                <div className="flex mt-8">
+                  <label
+                    htmlFor="search-dropdown"
+                    className="mb-8 text-sm font-medium text-gray-900 sr-only dark:text-white"
+                  >
+                    Your Email
+                  </label>
+                  <div className="flex mr-8"></div>
+                  <div className="relative w-full">
+                    <form onSubmit={handleSubmit}>
+                      <input
+                        // type="search"
+                        // id="search-dropdown"
+                        // className="text-[15px] p-2.5 w-[500px] lg:w-full z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
+                        // placeholder="검색어를 입력하세요."
+                        // required
+                        // value={inputValue}
+                        // onChange={handleInputChange}
+                        type="text"
+                        placeholder="검색어를 입력하세요."
+                        // className="py-2 px-4 border rounded-md"
+                        className="text-[15px] p-2.5 w-[500px] lg:w-full z-20 text-center text-gray-900 bg-gray-50 rounded-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring--500 focus:border-blue-500"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                      />
+                      <button
+                        type="submit"
+                        className="absolute top-0 right-0 px-5 py-2.5 text-sm font-medium h-full text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                      >
+                        검색
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div class="grid grid-cols-1 mt-8 md:grid-cols-5 gap-16 hidden lg:flex">
+                  <button
+                    type="button"
+                    data-value="맥도날드"
+                    onClick={handleButtonClick}
+                    class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
+                  >
+                    맥도날드
+                  </button>
+                  <button
+                    type="button"
+                    data-value="베스킨라빈스"
+                    onClick={handleButtonClick}
+                    class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
+                  >
+                    네이버지도
+                  </button>
+                  <button
+                    type="button"
+                    data-value="공차"
+                    onClick={handleButtonClick}
+                    class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
+                  >
+                    토스
+                  </button>
+                  <button
+                    type="button"
+                    data-value="버거킹"
+                    onClick={handleButtonClick}
+                    class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-3 text-center mb-2 w-32"
+                  >
+                    쿠팡
+                  </button>
+                  <button
+                    type="button"
+                    data-value="서브웨이"
+                    onClick={handleButtonClick}
+                    class="text-[16px] text-gray-500 hover:text-white bg-white hover:bg-indigo-300 focus:ring-1 focus:outline-none focus:ring-indigo-300 font-bold rounded-full px-2 py-2 text-center mb-2 w-32"
+                  >
+                    서브웨이
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </div>
       <div>
-        <Card />
+        <div className="grid gird-cols-2 md:grid-cols-4 p-20 gap-10">
+          {filteredKioskItems.map((data, index) => (
+            <div key={index}>
+              <div className="sw-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex justify-center p-5">
+                  <img
+                    src={imageVariables[data.image]}
+                    alt={data.name}
+                    class="h-[100px] lg:h-[150px] rounded-lg"
+                  />
+                </div>
+
+                <div class="px-5 pb-5">
+                  <a href="#">
+                    <h5 class="text-lg lg:text-2xl font-semibold tracking-tight text-gray-900 dark:text-white mb-5 lg:mb-0 line-clamp-1">
+                      {data.name}
+                    </h5>
+                  </a>
+
+                  <RatingComponent level={data.level} />
+                  <div class="flex items-center justify-between">
+                    <div class="text-center text-stone-500 font-medium hidden xl:flex">
+                      <img src={likeImage} />
+                    </div>
+
+                    <div class="text-center text-stone-500 font-medium hidden xl:flex">
+                      1,130개
+                    </div>
+
+                    <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
+                      <img src={eyeImage} />
+                    </div>
+
+                    <div class="text-center text-stone-500 font-medium hidden 2xl:flex">
+                      {data.view}
+                    </div>
+                    <a
+                      href={`/detail?&name=${data.name}&category=${data.category}&subcategory=${data.subcategory}&level=${data.level}&image=${data.image}`}
+                      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                    >
+                      more
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div class="flex items-center justify-center">
-        <Pagination />
+        <div>
+          <nav aria-label="Page navigation example">
+            <ul class="flex items-center -space-x-px h-8 text-sm">
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  <span class="sr-only">Previous</span>
+                  <svg
+                    class="w-2.5 h-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 1 1 5l4 4"
+                    />
+                  </svg>
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  aria-current="page"
+                  class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white"
+                >
+                  1
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  2
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  3
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  4
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  5
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                >
+                  <span class="sr-only">Next</span>
+                  <svg
+                    class="w-2.5 h-2.5"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 6 10"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="m1 9 4-4-4-4"
+                    />
+                  </svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
   );
