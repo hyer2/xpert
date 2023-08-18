@@ -601,6 +601,14 @@ function FooterComp() {
           <li>
             <a
               class="font-bold text-sm text-white transition link link-hover block mt-2"
+              href="/total"
+            >
+              전체
+            </a>
+          </li>
+          <li>
+            <a
+              class="font-bold text-sm text-white transition link link-hover block mt-2"
               href="/shop"
             >
               매장 키오스크
