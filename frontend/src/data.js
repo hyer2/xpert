@@ -186,7 +186,7 @@ const allData = storage.getAllData();
 console.log("All data:", allData);
 
 //메인 데이터
-const mainItemsdata = ["맥도날드", "cgv", "카카오택시", "쿠팡", "국민은행"];
+const mainItemsdata = ["맥도날드", "CGV", "카카오택시", "쿠팡", "국민은행"];
 const mainItems = storage.setMainItems(mainItemsdata);
 console.log("main items:", mainItems);
  

@@ -24,7 +24,7 @@ function Total() {
     setDropdownOpen(false);
   };
 
-  //   const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState("");
 
   // 버튼 클릭 핸들러
   const handleButtonClick = (e) => {
