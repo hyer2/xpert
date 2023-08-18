@@ -17,20 +17,22 @@ function getParameterByName(name, url) {
 
 function RenderTextWithBreaks({ text }) {
   const processedText = text
-      .split('\n')
-      .map(str => str.trim())
-      .filter(str => str)  // 빈 문자열 제거
-      .join('\n');
+    .split("\n")
+    .map((str) => str.trim())
+    .filter((str) => str) // 빈 문자열 제거
+    .join("\n");
 
   return (
-      <>
-      {processedText.split('\n').map((str, index) => 
+    <>
+      {processedText.split("\n").map((str, index) => (
         <React.Fragment key={index}>
-          {str}
-          <br />
-          </React.Fragment>
-      )}
-      </>
+          <span style={{ lineHeight: "3" }}>
+            {str}
+            <br />
+          </span>
+        </React.Fragment>
+      ))}
+    </>
   );
 }
 
@@ -51,11 +53,10 @@ function Detail() {
   const increaseLikes = () => {
     setLikeCount(likeCount + 1);
   };
-  
+
   useEffect(() => {
     setWatchcount(watchcount + 1);
   }, []);
-
 
   let categoryLink;
 
@@ -81,7 +82,6 @@ function Detail() {
     </svg>
   );
 
-  
   const RatingComponent = ({ level }) => {
     return (
       <div class="flex items-center justify-center hidden lg:flex">
@@ -239,8 +239,8 @@ function Detail() {
                 style={{ backgroundColor: "rgba(219, 234, 254, 0.3)" }}
               >
                 <div class="p-5">
-                <p class="text-[15px] text-gray-500 whitespace-normal dark:text-gray-400">
-                <RenderTextWithBreaks text={textVariables[image]} />
+                  <p class="text-[15px] text-gray-500 whitespace-normal dark:text-gray-400 ">
+                    <RenderTextWithBreaks text={textVariables[image]} />
                   </p>
                 </div>
               </div>
@@ -275,26 +275,22 @@ function Detail() {
                   </span>
                 </div>
                 <div
-        style={{
-          cursor: 'pointer',
-        }}
-      >
-        <img
-          src={eyeImage}
-          alt="Watch"
-          style={{
-            verticalAlign: 'middle',
-            marginTop: '3px', // Adjust this value as needed
-          }}
-        />
-                
+                  style={{
+                    cursor: "pointer",
+                  }}
+                >
+                  <img
+                    src={eyeImage}
+                    alt="Watch"
+                    style={{
+                      verticalAlign: "middle",
+                      marginTop: "3px", // Adjust this value as needed
+                    }}
+                  />
                 </div>
 
                 <div className="text-center text-stone-500 text-[15px] font-medium ml-2">
-                  <span
-                  >
-                    {watchcount}회
-                  </span>
+                  <span>{watchcount}회</span>
                 </div>
               </div>
             </div>
